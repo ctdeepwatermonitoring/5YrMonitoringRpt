@@ -69,6 +69,6 @@ for (n in 1:length(v_chems)) {
   #concatenate filename and destination, sep="" for no whitespace
   file_chem <- paste("S:/J_Tonfa/5YrMonitoringRpt/chemParameters/Results/", as.character(v_chems[n]), "-data.csv", sep="")
   #export table
-  write.csv(agg_chem, file_chem)
+  write.csv(agg_chem, file_chem, row.names=FALSE)
 }
 #-------------------#

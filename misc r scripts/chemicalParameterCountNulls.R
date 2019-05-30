@@ -64,4 +64,4 @@ for (n in 1:length(v_chems)) {
 #display
 df_null
 #export table
-write.csv(df_null, "S:/J_Tonfa/5YrMonitoringRpt/chemParameters/Results/nullCount.csv")
+write.csv(df_null, "S:/J_Tonfa/5YrMonitoringRpt/chemParameters/Results/nullCount.csv", row.names=FALSE)
