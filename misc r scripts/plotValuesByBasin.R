@@ -1,4 +1,6 @@
 library('RSQLite')
+library('ggplot2')
+library('plyr')
 #open ODBC
 db_path <- 'S:/J_Tonfa/5YrMonitoringRpt/' 
 db <- dbConnect(SQLite(), dbname=paste(db_path,"monrpt.db",sep=''));
@@ -29,30 +31,40 @@ sites.sbasn = basin.sbasn;"
 
 sitesbasin<-dbGetQuery(conn=db,SQL)
 
+#get mdl (minimum detection limit) table
+SQL <- "SELECT *
+FROM mdl;"
+
+table_mdl <- dbGetQuery(conn=db, SQL)
+
 dbDisconnect(db);
 
 #Join in R syntax to create a table with sites and chemicals
 table_basin<-merge(table,sitesbasin,by="sta_seq")
 
 #decide chemChoice
-chemChoice <- 'Hardness'
+chemChoice <- 'Turbidity'
 
-##all chloride values by major basin
-chem <- table_basin[table_basin$chemparameter == chemChoice & table_basin$duplicate==0
-                    & table_basin$value != 'NULL', ]
+##create data-frame of data
+chem <- table_basin[table_basin$chemparameter == chemChoice & table_basin$duplicate==0, ]
 
-#check that correct amount of chemicals sync
-#nrow(chem)
+#convert all NULL or N/A values to chemical's MDL (minimum detection limit)
+test_table_mdl <- table_mdl[table_mdl$chemparameter == chemChoice &
+                              table_mdl$MDL, ]
+chem$value[is.na(chem$value)] <- test_table_mdl$MDL
 
-##aggregate chemical paramter'd values by major basin
-#chem_appearances_by_basin <- aggregate(chem["value"], by=list(MajorBasin = chem$major), FUN=length)
-#chem_appearances_by_basin
+#statewide total = create copy data frame with all values to major 'Total"
+chem_total <- chem
+chem_total$major <- "Total"
 
-# the big leagues
+#combine two data frames
+combined_chem <- rbind.fill(chem_total, chem) #.fill is plyr function
+
+##the big leagues
 #https://ggplot2.tidyverse.org/reference/geom_boxplot.html
 #https://owi.usgs.gov/R/training-curriculum/intro-curriculum/ggplot2/
-chem_plot <- ggplot(data=chem, aes(group = major, x = major, y = value)) +
-#<- ggplot(data=chem, aes(group = mbasn, x = mbasn, y = value)) +    #alt: group by mbasn integer
+chem_plot <- ggplot(data=combined_chem, aes(group = major, x = major, y = value)) +
+#<- ggplot(data=combined_chem, aes(group = mbasn, x = mbasn, y = value)) +    #alt: group by mbasn integer
   labs( # set labels
     title= chemChoice,
     x='Major Basin',
@@ -64,21 +76,17 @@ chem_plot <- ggplot(data=chem, aes(group = major, x = major, y = value)) +
   theme(
     panel.border = element_blank(),
     panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank()
-  )
+    panel.grid.minor = element_blank(),
+    text = element_text(size=15), #change font size
+    axis.text.x = element_text(size=16, face="bold", angle=45), #change x-axis labels
+    plot.title = element_text(hjust = 0.5) #center title
+  ) +
+  #expand_limits(y=c(0, 7)) + #extend axis scale (and label)
+  scale_y_continuous(breaks = seq(0, 1000, 5)) + #set tick interval to 50, limit 1000
+  theme(legend.position="none") #remove legend
 
 chem_plot
 
-
-# display mbasn ids to major basin
-#rbind(unique(chem$mbasn), unique(chem$major))
-
-##scatterplot
-# ggplot(data=chem, aes(x = mbasn, y = value)) +
-#   labs(
-#     title="Chloride",
-#     x="Major Basin",
-#     y="ppm"
-#   ) +
-#   geom_point()
-
+file_chem <- paste("S:/J_Tonfa/5YrMonitoringRpt/chemParameters/Results/", as.character(chemChoice), "-boxplot.png", sep="")
+file_chem
+ggsave(file_chem, plot = chem_plot, width = 15, height = 10, units = "in", dpi=72)
