@@ -82,7 +82,8 @@ chem_plot <- ggplot(data=combined_chem, aes(group = major, x = major, y = value)
     plot.title = element_text(hjust = 0.5) #center title
   ) +
   #expand_limits(y=c(0, 7)) + #extend axis scale (and label)
-  scale_y_continuous(breaks = seq(0, 1000, 5)) + #set tick interval to 50, limit 1000
+  #scale_y_continuous(breaks = seq(0, 1000, 5)) + #set tick interval to 50, limit 1000
+  scale_y_continuous(trans='log2') + #for log graph
   theme(legend.position="none") #remove legend
 
 chem_plot
