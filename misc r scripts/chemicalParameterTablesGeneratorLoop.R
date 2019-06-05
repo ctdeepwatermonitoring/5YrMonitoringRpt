@@ -30,6 +30,12 @@ sites.sbasn = basin.sbasn;"
 
 sitesbasin<-dbGetQuery(conn=db,SQL)
 
+#get mdl (minimum detection limit) table
+SQL <- "SELECT *
+FROM mdl;"
+
+table_mdl <- dbGetQuery(conn=db, SQL)
+
 dbDisconnect(db);
 
 #Join in R syntax to create a table with sites and chemicals
@@ -42,8 +48,12 @@ v_chems <- c("Chloride", "Hardness", "Total Nitrogen", "Total Phosphorus", "Turb
 #loop until end of amound of chemical parameters
 for (n in 1:length(v_chems)) {
   #create chem dataframe
-  chem <- table_basin[table_basin$chemparameter == v_chems[n] & table_basin$duplicate==0
-                      & table_basin$value != 'NULL', ]
+  chem <- table_basin[table_basin$chemparameter == v_chems[n] & table_basin$duplicate==0, ]
+  
+  #convert all NULL or N/A values to chemical's MDL (minimum detection limit)
+  test_table_mdl <- table_mdl[table_mdl$chemparameter == chemChoice &
+                                table_mdl$MDL, ]
+  chem$value[is.na(chem$value)] <- test_table_mdl$MDL
   
   #check that unit of measurement is same throughout
   #unique(chem$uom)
