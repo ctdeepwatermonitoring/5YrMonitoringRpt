@@ -1,0 +1,817 @@
+"sta_seq","chemparameter","collect_date","value1","value2","uom","RPD_test"
+14444,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14445,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14444,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14445,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14221,"Nitrite","6/30/2011",0.003,0.003,"ppm",TRUE
+14221,"Nitrite","6/30/2011",0.003,0.003,"ppm",TRUE
+16387,"Nitrite","7/19/2011",0.003,0.003,"ppm",TRUE
+16387,"Nitrite","7/19/2011",0.003,0.003,"ppm",TRUE
+14711,"Nitrite","7/29/2011",0.012,0.012,"ppm",TRUE
+14711,"Nitrite","7/29/2011",0.012,0.012,"ppm",TRUE
+15571,"Nitrite","7/28/2011",0.003,0.003,"ppm",TRUE
+15571,"Nitrite","7/28/2011",0.003,0.003,"ppm",TRUE
+16110,"Nitrite","7/29/2011",0.003,0.003,"ppm",TRUE
+16110,"Nitrite","7/29/2011",0.003,0.003,"ppm",TRUE
+14206,"Nitrite","8/26/2011",0.003,0.003,"ppm",TRUE
+14206,"Nitrite","8/26/2011",0.003,0.003,"ppm",TRUE
+16119,"Nitrite","10/12/2011",0.003,0.003,"ppm",TRUE
+16119,"Nitrite","10/12/2011",0.003,0.003,"ppm",TRUE
+16325,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+16325,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+14226,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+14226,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+15087,"Nitrite","10/18/2011",0.005,0.005,"ppm",TRUE
+15087,"Nitrite","10/18/2011",0.005,0.005,"ppm",TRUE
+14247,"Nitrite","10/21/2011",0.003,0.003,"ppm",TRUE
+14247,"Nitrite","10/21/2011",0.003,0.003,"ppm",TRUE
+14316,"Nitrite","10/26/2011",0.01,0.003,"ppm",FALSE
+14316,"Nitrite","10/26/2011",0.003,0.01,"ppm",FALSE
+14612,"Nitrite","11/7/2011",0.01,0.01,"ppm",TRUE
+14612,"Nitrite","11/7/2011",0.01,0.01,"ppm",TRUE
+15240,"Nitrite","11/10/2011",0.009,0.009,"ppm",TRUE
+15240,"Nitrite","11/10/2011",0.009,0.009,"ppm",TRUE
+15516,"Nitrite","11/10/2011",0.012,0.006,"ppm",FALSE
+15516,"Nitrite","11/10/2011",0.006,0.012,"ppm",FALSE
+14792,"Nitrite","11/14/2011",0.01,0.009,"ppm",TRUE
+14792,"Nitrite","11/14/2011",0.009,0.01,"ppm",TRUE
+14317,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+17747,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+14317,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+17747,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+15556,"Nitrite","11/15/2011",0.009,0.009,"ppm",TRUE
+15556,"Nitrite","11/15/2011",0.009,0.009,"ppm",TRUE
+14740,"Nitrite","11/16/2011",0.004,0.004,"ppm",TRUE
+14740,"Nitrite","11/16/2011",0.004,0.004,"ppm",TRUE
+14436,"Nitrite","6/12/2012",0.007,0.007,"ppm",TRUE
+14436,"Nitrite","6/12/2012",0.007,0.007,"ppm",TRUE
+16122,"Nitrite","6/22/2012",0.003,0.003,"ppm",TRUE
+16122,"Nitrite","6/22/2012",0.003,0.003,"ppm",TRUE
+18215,"Nitrite","6/21/2012",0.007,0.007,"ppm",TRUE
+18215,"Nitrite","6/21/2012",0.007,0.007,"ppm",TRUE
+14263,"Nitrite","6/29/2012",0.013,0.014,"ppm",TRUE
+14263,"Nitrite","6/29/2012",0.014,0.013,"ppm",TRUE
+15703,"Nitrite","7/2/2012",0.003,0.003,"ppm",TRUE
+15703,"Nitrite","7/2/2012",0.003,0.003,"ppm",TRUE
+18159,"Nitrite","7/3/2012",0.004,0.004,"ppm",TRUE
+18159,"Nitrite","7/3/2012",0.004,0.004,"ppm",TRUE
+14288,"Nitrite","7/5/2012",0.008,0.003,"ppm",FALSE
+14288,"Nitrite","7/5/2012",0.003,0.008,"ppm",FALSE
+14396,"Nitrite","7/12/2012",0.003,0.003,"ppm",TRUE
+14396,"Nitrite","7/12/2012",0.003,0.003,"ppm",TRUE
+14578,"Nitrite","7/16/2012",0.012,0.009,"ppm",TRUE
+14578,"Nitrite","7/16/2012",0.009,0.012,"ppm",FALSE
+17568,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+17568,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+16121,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+16121,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+14396,"Nitrite","9/21/2012",0.003,0.003,"ppm",TRUE
+14396,"Nitrite","9/21/2012",0.003,0.003,"ppm",TRUE
+16304,"Nitrite","9/24/2012",0.013,0.014,"ppm",TRUE
+16304,"Nitrite","9/24/2012",0.014,0.013,"ppm",TRUE
+14442,"Nitrite","10/3/2012",0.004,0.006,"ppm",FALSE
+14442,"Nitrite","10/3/2012",0.006,0.004,"ppm",FALSE
+14444,"Nitrite","10/1/2012",0.008,0.007,"ppm",TRUE
+14444,"Nitrite","10/1/2012",0.007,0.008,"ppm",TRUE
+15530,"Nitrite","10/2/2012",0.004,0.006,"ppm",FALSE
+15530,"Nitrite","10/2/2012",0.006,0.004,"ppm",FALSE
+14377,"Nitrite","10/9/2012",0.012,0.011,"ppm",TRUE
+14377,"Nitrite","10/9/2012",0.011,0.012,"ppm",TRUE
+15020,"Nitrite","10/15/2012",0.003,0.003,"ppm",TRUE
+15020,"Nitrite","10/15/2012",0.003,0.003,"ppm",TRUE
+14997,"Nitrite","10/16/2012",0.006,0.003,"ppm",FALSE
+14997,"Nitrite","10/16/2012",0.003,0.006,"ppm",FALSE
+14147,"Nitrite","10/17/2012",0.024,0.029,"ppm",TRUE
+14147,"Nitrite","10/17/2012",0.029,0.024,"ppm",TRUE
+14601,"Nitrite","10/23/2012",0.006,0.005,"ppm",TRUE
+14601,"Nitrite","10/23/2012",0.005,0.006,"ppm",TRUE
+14441,"Nitrite","5/15/2013",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","5/15/2013",0.003,0.003,"ppm",TRUE
+14473,"Nitrite","6/4/2013",0.005,0.005,"ppm",TRUE
+14473,"Nitrite","6/4/2013",0.005,0.005,"ppm",TRUE
+14720,"Nitrite","7/3/2013",0.003,0.003,"ppm",TRUE
+14720,"Nitrite","7/3/2013",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","7/8/2013",0.003,0.004,"ppm",FALSE
+14441,"Nitrite","7/8/2013",0.004,0.003,"ppm",TRUE
+14319,"Nitrite","9/16/2013",0.035,0.034,"ppm",TRUE
+14319,"Nitrite","9/16/2013",0.034,0.035,"ppm",TRUE
+16076,"Nitrite","9/18/2013",0.003,0.006,"ppm",FALSE
+16076,"Nitrite","9/18/2013",0.006,0.003,"ppm",FALSE
+14441,"Nitrite","9/19/2013",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","9/19/2013",0.003,0.003,"ppm",TRUE
+15994,"Nitrite","9/26/2013",0.003,0.003,"ppm",TRUE
+15994,"Nitrite","9/26/2013",0.003,0.003,"ppm",TRUE
+14298,"Nitrite","10/2/2013",0.003,0.003,"ppm",TRUE
+14298,"Nitrite","10/2/2013",0.003,0.003,"ppm",TRUE
+14293,"Nitrite","10/3/2013",0.003,0.003,"ppm",TRUE
+14293,"Nitrite","10/3/2013",0.003,0.003,"ppm",TRUE
+14363,"Nitrite","10/7/2013",0.003,0.003,"ppm",TRUE
+14363,"Nitrite","10/7/2013",0.003,0.003,"ppm",TRUE
+15375,"Nitrite","10/9/2013",0.003,0.003,"ppm",TRUE
+15375,"Nitrite","10/9/2013",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16137,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16137,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16044,"Nitrite","10/16/2013",0.003,0.003,"ppm",TRUE
+16044,"Nitrite","10/16/2013",0.003,0.003,"ppm",TRUE
+14410,"Nitrite","6/17/2014",0.003,0.004,"ppm",FALSE
+14410,"Nitrite","6/17/2014",0.004,0.003,"ppm",TRUE
+16885,"Nitrite","6/10/2014",0.003,0.003,"ppm",TRUE
+16885,"Nitrite","6/10/2014",0.003,0.003,"ppm",TRUE
+14199,"Nitrite","6/12/2014",0.003,0.003,"ppm",TRUE
+14199,"Nitrite","6/12/2014",0.003,0.003,"ppm",TRUE
+14442,"Nitrite","6/18/2014",0.003,0.003,"ppm",TRUE
+14442,"Nitrite","6/18/2014",0.003,0.003,"ppm",TRUE
+15319,"Nitrite","6/25/2014",0.008,0.007,"ppm",TRUE
+15319,"Nitrite","6/25/2014",0.007,0.008,"ppm",TRUE
+14589,"Nitrite","7/11/2014",0.003,0.004,"ppm",FALSE
+14589,"Nitrite","7/11/2014",0.004,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+15179,"Nitrite","7/17/2014",0.003,0.003,"ppm",TRUE
+15179,"Nitrite","7/17/2014",0.003,0.003,"ppm",TRUE
+14602,"Nitrite","7/18/2014",0.003,0.003,"ppm",TRUE
+14602,"Nitrite","7/18/2014",0.003,0.003,"ppm",TRUE
+14599,"Nitrite","8/1/2014",0.003,0.003,"ppm",TRUE
+14599,"Nitrite","8/1/2014",0.003,0.003,"ppm",TRUE
+16734,"Nitrite","8/8/2014",0.003,0.011,"ppm",FALSE
+16734,"Nitrite","8/8/2014",0.011,0.003,"ppm",FALSE
+16212,"Nitrite","8/14/2014",0.003,0.003,"ppm",TRUE
+16212,"Nitrite","8/14/2014",0.003,0.003,"ppm",TRUE
+18755,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+18755,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+18753,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+18753,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+17852,"Nitrite","8/27/2014",0.003,0.003,"ppm",TRUE
+17852,"Nitrite","8/27/2014",0.003,0.003,"ppm",TRUE
+14582,"Nitrite","9/15/2014",0.003,0.003,"ppm",TRUE
+14582,"Nitrite","9/15/2014",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","9/23/2014",0.003,0.003,"ppm",TRUE
+14341,"Nitrite","9/23/2014",0.004,0.003,"ppm",TRUE
+14341,"Nitrite","9/23/2014",0.003,0.004,"ppm",FALSE
+14825,"Nitrite","9/23/2014",0.008,0.009,"ppm",TRUE
+14825,"Nitrite","9/23/2014",0.009,0.008,"ppm",TRUE
+14451,"Nitrite","9/18/2014",0.003,0.003,"ppm",TRUE
+14451,"Nitrite","9/18/2014",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","9/23/2014",0.003,0.003,"ppm",TRUE
+14599,"Nitrite","10/10/2014",0.03,0.034,"ppm",TRUE
+14599,"Nitrite","10/10/2014",0.034,0.03,"ppm",TRUE
+14879,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14879,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+15567,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+15567,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14738,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14738,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14581,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+14581,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15720,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15720,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15008,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15008,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+16112,"Nitrite","10/2/2014",0.003,0.003,"ppm",TRUE
+16112,"Nitrite","10/2/2014",0.003,0.003,"ppm",TRUE
+15796,"Nitrite","6/3/2015",0.005,0.003,"ppm",FALSE
+15796,"Nitrite","6/3/2015",0.003,0.005,"ppm",FALSE
+14404,"Nitrite","6/8/2015",0.008,0.005,"ppm",FALSE
+14404,"Nitrite","6/8/2015",0.005,0.008,"ppm",FALSE
+14450,"Nitrite","6/8/2015",0.003,0.003,"ppm",TRUE
+14450,"Nitrite","6/8/2015",0.003,0.003,"ppm",TRUE
+14410,"Nitrite","7/6/2015",0.003,0.003,"ppm",TRUE
+14410,"Nitrite","7/6/2015",0.003,0.003,"ppm",TRUE
+17271,"Nitrite","7/17/2015",0.003,0.003,"ppm",TRUE
+17271,"Nitrite","7/17/2015",0.003,0.003,"ppm",TRUE
+15703,"Nitrite","7/29/2015",0.003,0.003,"ppm",TRUE
+15703,"Nitrite","7/29/2015",0.003,0.003,"ppm",TRUE
+14804,"Nitrite","8/28/2015",0.003,0.003,"ppm",TRUE
+14804,"Nitrite","8/28/2015",0.003,0.003,"ppm",TRUE
+18159,"Nitrite","9/14/2015",0.003,0.003,"ppm",TRUE
+18159,"Nitrite","9/14/2015",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+16221,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+16221,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+16124,"Nitrite","9/25/2015",0.003,0.003,"ppm",TRUE
+16124,"Nitrite","9/25/2015",0.003,0.003,"ppm",TRUE
+15315,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+15315,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+17295,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+17295,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+14720,"Nitrite","10/5/2015",0.003,0.003,"ppm",TRUE
+14720,"Nitrite","10/5/2015",0.003,0.003,"ppm",TRUE
+14863,"Nitrite","11/17/2015",0.003,0.004,"ppm",FALSE
+14863,"Nitrite","11/17/2015",0.004,0.003,"ppm",TRUE
+14444,"Total Nitrogen","7/13/2011",0.651,0.406,"ppm",FALSE
+14445,"Total Nitrogen","7/13/2011",0.651,0.406,"ppm",FALSE
+14444,"Total Nitrogen","7/13/2011",0.406,0.651,"ppm",FALSE
+14445,"Total Nitrogen","7/13/2011",0.406,0.651,"ppm",FALSE
+14221,"Total Nitrogen","6/30/2011",0.315,0.312,"ppm",TRUE
+14221,"Total Nitrogen","6/30/2011",0.312,0.315,"ppm",TRUE
+16387,"Total Nitrogen","7/19/2011",0.147,0.127,"ppm",TRUE
+16387,"Total Nitrogen","7/19/2011",0.127,0.147,"ppm",TRUE
+14711,"Total Nitrogen","7/29/2011",1.195,1.212,"ppm",TRUE
+14711,"Total Nitrogen","7/29/2011",1.212,1.195,"ppm",TRUE
+15571,"Total Nitrogen","7/28/2011",0.457,0.458,"ppm",TRUE
+15571,"Total Nitrogen","7/28/2011",0.458,0.457,"ppm",TRUE
+16110,"Total Nitrogen","7/29/2011",0.581,0.594,"ppm",TRUE
+16110,"Total Nitrogen","7/29/2011",0.594,0.581,"ppm",TRUE
+14206,"Total Nitrogen","8/26/2011",1.15,1.19,"ppm",TRUE
+14206,"Total Nitrogen","8/26/2011",1.19,1.15,"ppm",TRUE
+16119,"Total Nitrogen","10/12/2011",0.139,0.143,"ppm",TRUE
+16119,"Total Nitrogen","10/12/2011",0.143,0.139,"ppm",TRUE
+16325,"Total Nitrogen","10/17/2011",0.922,0.904,"ppm",TRUE
+16325,"Total Nitrogen","10/17/2011",0.904,0.922,"ppm",TRUE
+14226,"Total Nitrogen","10/17/2011",1.17,1.21,"ppm",TRUE
+14226,"Total Nitrogen","10/17/2011",1.21,1.17,"ppm",TRUE
+15087,"Total Nitrogen","10/18/2011",1.52,1.61,"ppm",TRUE
+15087,"Total Nitrogen","10/18/2011",1.61,1.52,"ppm",TRUE
+14247,"Total Nitrogen","10/21/2011",0.143,0.136,"ppm",TRUE
+14247,"Total Nitrogen","10/21/2011",0.136,0.143,"ppm",TRUE
+14316,"Total Nitrogen","10/26/2011",0.439,0.45,"ppm",TRUE
+14316,"Total Nitrogen","10/26/2011",0.45,0.439,"ppm",TRUE
+14612,"Total Nitrogen","11/7/2011",0.241,0.242,"ppm",TRUE
+14612,"Total Nitrogen","11/7/2011",0.242,0.241,"ppm",TRUE
+15240,"Total Nitrogen","11/10/2011",0.111,0.117,"ppm",TRUE
+15240,"Total Nitrogen","11/10/2011",0.117,0.111,"ppm",TRUE
+15516,"Total Nitrogen","11/10/2011",0.093,0.067,"ppm",TRUE
+15516,"Total Nitrogen","11/10/2011",0.067,0.093,"ppm",FALSE
+14792,"Total Nitrogen","11/14/2011",0.512,0.495,"ppm",TRUE
+14792,"Total Nitrogen","11/14/2011",0.495,0.512,"ppm",TRUE
+14317,"Total Nitrogen","11/14/2011",0.266,0.261,"ppm",TRUE
+17747,"Total Nitrogen","11/14/2011",0.266,0.261,"ppm",TRUE
+14317,"Total Nitrogen","11/14/2011",0.261,0.266,"ppm",TRUE
+17747,"Total Nitrogen","11/14/2011",0.261,0.266,"ppm",TRUE
+15556,"Total Nitrogen","11/15/2011",0.861,0.893,"ppm",TRUE
+15556,"Total Nitrogen","11/15/2011",0.893,0.861,"ppm",TRUE
+14740,"Total Nitrogen","11/16/2011",0.124,0.14,"ppm",TRUE
+14740,"Total Nitrogen","11/16/2011",0.14,0.124,"ppm",TRUE
+14436,"Total Nitrogen","6/12/2012",1.64,1.63,"ppm",TRUE
+14436,"Total Nitrogen","6/12/2012",1.63,1.64,"ppm",TRUE
+16122,"Total Nitrogen","6/22/2012",0.28,0.321,"ppm",TRUE
+16122,"Total Nitrogen","6/22/2012",0.321,0.28,"ppm",TRUE
+18215,"Total Nitrogen","6/21/2012",3.19,3.14,"ppm",TRUE
+18215,"Total Nitrogen","6/21/2012",3.14,3.19,"ppm",TRUE
+14263,"Total Nitrogen","6/29/2012",3.14,3.14,"ppm",TRUE
+14263,"Total Nitrogen","6/29/2012",3.14,3.14,"ppm",TRUE
+15703,"Total Nitrogen","7/2/2012",0.385,0.395,"ppm",TRUE
+15703,"Total Nitrogen","7/2/2012",0.395,0.385,"ppm",TRUE
+18159,"Total Nitrogen","7/3/2012",0.32,0.338,"ppm",TRUE
+18159,"Total Nitrogen","7/3/2012",0.338,0.32,"ppm",TRUE
+14288,"Total Nitrogen","7/5/2012",0.865,0.913,"ppm",TRUE
+14288,"Total Nitrogen","7/5/2012",0.913,0.865,"ppm",TRUE
+14396,"Total Nitrogen","7/12/2012",0.65,0.494,"ppm",TRUE
+14396,"Total Nitrogen","7/12/2012",0.494,0.65,"ppm",FALSE
+14578,"Total Nitrogen","7/16/2012",1.08,1.11,"ppm",TRUE
+14578,"Total Nitrogen","7/16/2012",1.11,1.08,"ppm",TRUE
+17568,"Total Nitrogen","9/19/2012",0.29,0.29,"ppm",TRUE
+17568,"Total Nitrogen","9/19/2012",0.29,0.29,"ppm",TRUE
+16121,"Total Nitrogen","9/19/2012",0.342,0.345,"ppm",TRUE
+16121,"Total Nitrogen","9/19/2012",0.345,0.342,"ppm",TRUE
+14396,"Total Nitrogen","9/21/2012",0.297,0.29,"ppm",TRUE
+14396,"Total Nitrogen","9/21/2012",0.29,0.297,"ppm",TRUE
+16304,"Total Nitrogen","9/24/2012",0.683,0.688,"ppm",TRUE
+16304,"Total Nitrogen","9/24/2012",0.688,0.683,"ppm",TRUE
+14442,"Total Nitrogen","10/3/2012",0.239,0.22,"ppm",TRUE
+14442,"Total Nitrogen","10/3/2012",0.22,0.239,"ppm",TRUE
+14444,"Total Nitrogen","10/1/2012",0.296,0.286,"ppm",TRUE
+14444,"Total Nitrogen","10/1/2012",0.286,0.296,"ppm",TRUE
+15530,"Total Nitrogen","10/2/2012",0.209,0.23,"ppm",TRUE
+15530,"Total Nitrogen","10/2/2012",0.23,0.209,"ppm",TRUE
+14377,"Total Nitrogen","10/9/2012",0.26,0.255,"ppm",TRUE
+14377,"Total Nitrogen","10/9/2012",0.255,0.26,"ppm",TRUE
+15020,"Total Nitrogen","10/15/2012",0.177,0.186,"ppm",TRUE
+15020,"Total Nitrogen","10/15/2012",0.186,0.177,"ppm",TRUE
+14997,"Total Nitrogen","10/16/2012",0.126,0.129,"ppm",TRUE
+14997,"Total Nitrogen","10/16/2012",0.129,0.126,"ppm",TRUE
+14147,"Total Nitrogen","10/17/2012",4.59,4.765,"ppm",TRUE
+14147,"Total Nitrogen","10/17/2012",4.765,4.59,"ppm",TRUE
+14601,"Total Nitrogen","10/23/2012",0.597,0.577,"ppm",TRUE
+14601,"Total Nitrogen","10/23/2012",0.577,0.597,"ppm",TRUE
+14441,"Total Nitrogen","5/15/2013",0.313,0.336,"ppm",TRUE
+14441,"Total Nitrogen","5/15/2013",0.336,0.313,"ppm",TRUE
+14473,"Total Nitrogen","6/4/2013",0.712,0.703,"ppm",TRUE
+14473,"Total Nitrogen","6/4/2013",0.703,0.712,"ppm",TRUE
+14720,"Total Nitrogen","7/3/2013",0.272,0.273,"ppm",TRUE
+14720,"Total Nitrogen","7/3/2013",0.273,0.272,"ppm",TRUE
+14441,"Total Nitrogen","7/8/2013",1.06,0.877,"ppm",TRUE
+14441,"Total Nitrogen","7/8/2013",0.877,1.06,"ppm",TRUE
+14319,"Total Nitrogen","9/16/2013",0.96,0.95,"ppm",TRUE
+14319,"Total Nitrogen","9/16/2013",0.95,0.96,"ppm",TRUE
+16076,"Total Nitrogen","9/18/2013",0.769,0.767,"ppm",TRUE
+16076,"Total Nitrogen","9/18/2013",0.767,0.769,"ppm",TRUE
+14441,"Total Nitrogen","9/19/2013",0.223,0.229,"ppm",TRUE
+14441,"Total Nitrogen","9/19/2013",0.229,0.223,"ppm",TRUE
+15994,"Total Nitrogen","9/26/2013",0.383,0.373,"ppm",TRUE
+15994,"Total Nitrogen","9/26/2013",0.373,0.383,"ppm",TRUE
+14298,"Total Nitrogen","10/2/2013",0.487,0.535,"ppm",TRUE
+14298,"Total Nitrogen","10/2/2013",0.535,0.487,"ppm",TRUE
+14293,"Total Nitrogen","10/3/2013",0.373,0.375,"ppm",TRUE
+14293,"Total Nitrogen","10/3/2013",0.375,0.373,"ppm",TRUE
+14363,"Total Nitrogen","10/7/2013",0.427,0.368,"ppm",TRUE
+14363,"Total Nitrogen","10/7/2013",0.368,0.427,"ppm",TRUE
+15375,"Total Nitrogen","10/9/2013",0.365,0.316,"ppm",TRUE
+15375,"Total Nitrogen","10/9/2013",0.316,0.365,"ppm",TRUE
+16370,"Total Nitrogen","10/15/2013",0.312,0.308,"ppm",TRUE
+16370,"Total Nitrogen","10/15/2013",0.308,0.312,"ppm",TRUE
+16137,"Total Nitrogen","10/15/2013",1.499,1.543,"ppm",TRUE
+16137,"Total Nitrogen","10/15/2013",1.543,1.499,"ppm",TRUE
+16044,"Total Nitrogen","10/16/2013",0.148,0.141,"ppm",TRUE
+16044,"Total Nitrogen","10/16/2013",0.141,0.148,"ppm",TRUE
+14410,"Total Nitrogen","6/17/2014",0.527,0.523,"ppm",TRUE
+14410,"Total Nitrogen","6/17/2014",0.523,0.527,"ppm",TRUE
+16885,"Total Nitrogen","6/10/2014",0.32,0.294,"ppm",TRUE
+16885,"Total Nitrogen","6/10/2014",0.294,0.32,"ppm",TRUE
+14199,"Total Nitrogen","6/12/2014",0.269,0.298,"ppm",TRUE
+14199,"Total Nitrogen","6/12/2014",0.298,0.269,"ppm",TRUE
+14442,"Total Nitrogen","6/18/2014",0.252,0.252,"ppm",TRUE
+14442,"Total Nitrogen","6/18/2014",0.252,0.252,"ppm",TRUE
+15319,"Total Nitrogen","6/25/2014",0.685,0.682,"ppm",TRUE
+15319,"Total Nitrogen","6/25/2014",0.682,0.685,"ppm",TRUE
+14589,"Total Nitrogen","7/11/2014",0.408,0.415,"ppm",TRUE
+14589,"Total Nitrogen","7/11/2014",0.415,0.408,"ppm",TRUE
+14724,"Total Nitrogen","7/16/2014",0.23,0.221,"ppm",TRUE
+14724,"Total Nitrogen","7/16/2014",0.221,0.23,"ppm",TRUE
+14724,"Total Nitrogen","7/16/2014",0.221,0.245,"ppm",TRUE
+14724,"Total Nitrogen","7/16/2014",0.245,0.221,"ppm",TRUE
+15179,"Total Nitrogen","7/17/2014",0.221,0.244,"ppm",TRUE
+15179,"Total Nitrogen","7/17/2014",0.244,0.221,"ppm",TRUE
+14602,"Total Nitrogen","7/18/2014",0.889,0.764,"ppm",TRUE
+14602,"Total Nitrogen","7/18/2014",0.764,0.889,"ppm",TRUE
+14599,"Total Nitrogen","8/1/2014",0.367,0.368,"ppm",TRUE
+14599,"Total Nitrogen","8/1/2014",0.368,0.367,"ppm",TRUE
+16734,"Total Nitrogen","8/8/2014",0.744,0.73,"ppm",TRUE
+16734,"Total Nitrogen","8/8/2014",0.73,0.744,"ppm",TRUE
+16212,"Total Nitrogen","8/14/2014",0.685,0.682,"ppm",TRUE
+16212,"Total Nitrogen","8/14/2014",0.682,0.685,"ppm",TRUE
+18755,"Total Nitrogen","8/21/2014",0.487,0.322,"ppm",FALSE
+18755,"Total Nitrogen","8/21/2014",0.322,0.487,"ppm",FALSE
+18753,"Total Nitrogen","8/21/2014",0.45,0.467,"ppm",TRUE
+18753,"Total Nitrogen","8/21/2014",0.467,0.45,"ppm",TRUE
+17852,"Total Nitrogen","8/27/2014",0.75,0.808,"ppm",TRUE
+17852,"Total Nitrogen","8/27/2014",0.808,0.75,"ppm",TRUE
+14582,"Total Nitrogen","9/15/2014",0.671,0.659,"ppm",TRUE
+14582,"Total Nitrogen","9/15/2014",0.659,0.671,"ppm",TRUE
+16370,"Total Nitrogen","9/23/2014",0.437,0.485,"ppm",TRUE
+14341,"Total Nitrogen","9/23/2014",0.558,0.486,"ppm",TRUE
+14341,"Total Nitrogen","9/23/2014",0.486,0.558,"ppm",TRUE
+14825,"Total Nitrogen","9/23/2014",1.382,1.305,"ppm",TRUE
+14825,"Total Nitrogen","9/23/2014",1.305,1.382,"ppm",TRUE
+14451,"Total Nitrogen","9/18/2014",0.714,0.721,"ppm",TRUE
+14451,"Total Nitrogen","9/18/2014",0.721,0.714,"ppm",TRUE
+16370,"Total Nitrogen","9/23/2014",0.485,0.437,"ppm",TRUE
+14599,"Total Nitrogen","10/10/2014",0.161,0.172,"ppm",TRUE
+14599,"Total Nitrogen","10/10/2014",0.172,0.161,"ppm",TRUE
+14879,"Total Nitrogen","10/9/2014",0.349,0.374,"ppm",TRUE
+14879,"Total Nitrogen","10/9/2014",0.374,0.349,"ppm",TRUE
+15567,"Total Nitrogen","10/9/2014",0.561,0.566,"ppm",TRUE
+15567,"Total Nitrogen","10/9/2014",0.566,0.561,"ppm",TRUE
+14738,"Total Nitrogen","10/9/2014",0.73,0.641,"ppm",TRUE
+14738,"Total Nitrogen","10/9/2014",0.641,0.73,"ppm",TRUE
+14581,"Total Nitrogen","10/7/2014",1.339,1.322,"ppm",TRUE
+14581,"Total Nitrogen","10/7/2014",1.322,1.339,"ppm",TRUE
+15720,"Total Nitrogen","10/7/2014",0.176,0.177,"ppm",TRUE
+15720,"Total Nitrogen","10/7/2014",0.177,0.176,"ppm",TRUE
+15008,"Total Nitrogen","10/7/2014",0.412,0.387,"ppm",TRUE
+15008,"Total Nitrogen","10/7/2014",0.387,0.412,"ppm",TRUE
+16112,"Total Nitrogen","10/2/2014",0.213,0.228,"ppm",TRUE
+16112,"Total Nitrogen","10/2/2014",0.228,0.213,"ppm",TRUE
+15796,"Total Nitrogen","6/3/2015",0.459,0.441,"ppm",TRUE
+15796,"Total Nitrogen","6/3/2015",0.441,0.459,"ppm",TRUE
+14404,"Total Nitrogen","6/8/2015",1.094,1.103,"ppm",TRUE
+14404,"Total Nitrogen","6/8/2015",1.103,1.094,"ppm",TRUE
+14450,"Total Nitrogen","6/8/2015",0.344,0.337,"ppm",TRUE
+14450,"Total Nitrogen","6/8/2015",0.337,0.344,"ppm",TRUE
+14410,"Total Nitrogen","7/6/2015",0.452,0.451,"ppm",TRUE
+14410,"Total Nitrogen","7/6/2015",0.451,0.452,"ppm",TRUE
+17271,"Total Nitrogen","7/17/2015",0.202,0.229,"ppm",TRUE
+17271,"Total Nitrogen","7/17/2015",0.229,0.202,"ppm",TRUE
+15703,"Total Nitrogen","7/29/2015",0.349,0.344,"ppm",TRUE
+15703,"Total Nitrogen","7/29/2015",0.344,0.349,"ppm",TRUE
+14804,"Total Nitrogen","8/28/2015",0.41,0.402,"ppm",TRUE
+14804,"Total Nitrogen","8/28/2015",0.402,0.41,"ppm",TRUE
+18159,"Total Nitrogen","9/14/2015",0.279,0.273,"ppm",TRUE
+18159,"Total Nitrogen","9/14/2015",0.273,0.279,"ppm",TRUE
+14441,"Total Nitrogen","9/15/2015",0.227,0.224,"ppm",TRUE
+14441,"Total Nitrogen","9/15/2015",0.224,0.227,"ppm",TRUE
+16221,"Total Nitrogen","9/15/2015",0.337,0.34,"ppm",TRUE
+16221,"Total Nitrogen","9/15/2015",0.34,0.337,"ppm",TRUE
+16124,"Total Nitrogen","9/25/2015",0.214,0.063,"ppm",FALSE
+16124,"Total Nitrogen","9/25/2015",0.063,0.214,"ppm",FALSE
+15315,"Total Nitrogen","10/1/2015",0.275,0.27,"ppm",TRUE
+15315,"Total Nitrogen","10/1/2015",0.27,0.275,"ppm",TRUE
+17295,"Total Nitrogen","10/1/2015",0.234,0.236,"ppm",TRUE
+17295,"Total Nitrogen","10/1/2015",0.236,0.234,"ppm",TRUE
+14720,"Total Nitrogen","10/5/2015",0.261,0.233,"ppm",TRUE
+14720,"Total Nitrogen","10/5/2015",0.233,0.261,"ppm",TRUE
+14863,"Total Nitrogen","11/17/2015",0.112,0.119,"ppm",TRUE
+14863,"Total Nitrogen","11/17/2015",0.119,0.112,"ppm",TRUE
+14444,"Total Phosphorus","7/13/2011",0.021,0.028,"ppm",FALSE
+14445,"Total Phosphorus","7/13/2011",0.021,0.028,"ppm",FALSE
+14444,"Total Phosphorus","7/13/2011",0.028,0.021,"ppm",TRUE
+14445,"Total Phosphorus","7/13/2011",0.028,0.021,"ppm",TRUE
+14221,"Total Phosphorus","6/30/2011",0.017,0.017,"ppm",TRUE
+14221,"Total Phosphorus","6/30/2011",0.017,0.017,"ppm",TRUE
+16387,"Total Phosphorus","7/19/2011",0.012,0.011,"ppm",TRUE
+16387,"Total Phosphorus","7/19/2011",0.011,0.012,"ppm",TRUE
+14711,"Total Phosphorus","7/29/2011",0.352,0.352,"ppm",TRUE
+14711,"Total Phosphorus","7/29/2011",0.352,0.352,"ppm",TRUE
+15571,"Total Phosphorus","7/28/2011",0.01,0.011,"ppm",TRUE
+15571,"Total Phosphorus","7/28/2011",0.011,0.01,"ppm",TRUE
+16110,"Total Phosphorus","7/29/2011",0.013,0.012,"ppm",TRUE
+16110,"Total Phosphorus","7/29/2011",0.012,0.013,"ppm",TRUE
+14206,"Total Phosphorus","8/26/2011",0.029,0.029,"ppm",TRUE
+14206,"Total Phosphorus","8/26/2011",0.029,0.029,"ppm",TRUE
+16119,"Total Phosphorus","10/12/2011",0.011,0.01,"ppm",TRUE
+16119,"Total Phosphorus","10/12/2011",0.01,0.011,"ppm",TRUE
+16325,"Total Phosphorus","10/17/2011",0.033,0.033,"ppm",TRUE
+16325,"Total Phosphorus","10/17/2011",0.033,0.033,"ppm",TRUE
+14226,"Total Phosphorus","10/17/2011",0.029,0.029,"ppm",TRUE
+14226,"Total Phosphorus","10/17/2011",0.029,0.029,"ppm",TRUE
+15087,"Total Phosphorus","10/18/2011",0.021,0.022,"ppm",TRUE
+15087,"Total Phosphorus","10/18/2011",0.022,0.021,"ppm",TRUE
+14247,"Total Phosphorus","10/21/2011",0.01,0.01,"ppm",TRUE
+14247,"Total Phosphorus","10/21/2011",0.01,0.01,"ppm",TRUE
+14316,"Total Phosphorus","10/26/2011",0.048,0.047,"ppm",TRUE
+14316,"Total Phosphorus","10/26/2011",0.047,0.048,"ppm",TRUE
+14612,"Total Phosphorus","11/7/2011",0.037,0.009,"ppm",FALSE
+14612,"Total Phosphorus","11/7/2011",0.009,0.037,"ppm",FALSE
+15240,"Total Phosphorus","11/10/2011",0.005,0.006,"ppm",TRUE
+15240,"Total Phosphorus","11/10/2011",0.006,0.005,"ppm",TRUE
+15516,"Total Phosphorus","11/10/2011",0.005,0.007,"ppm",FALSE
+15516,"Total Phosphorus","11/10/2011",0.007,0.005,"ppm",TRUE
+14792,"Total Phosphorus","11/14/2011",0.015,0.013,"ppm",TRUE
+14792,"Total Phosphorus","11/14/2011",0.013,0.015,"ppm",TRUE
+14317,"Total Phosphorus","11/14/2011",0.019,0.019,"ppm",TRUE
+17747,"Total Phosphorus","11/14/2011",0.019,0.019,"ppm",TRUE
+14317,"Total Phosphorus","11/14/2011",0.019,0.019,"ppm",TRUE
+17747,"Total Phosphorus","11/14/2011",0.019,0.019,"ppm",TRUE
+15556,"Total Phosphorus","11/15/2011",0.142,0.137,"ppm",TRUE
+15556,"Total Phosphorus","11/15/2011",0.137,0.142,"ppm",TRUE
+14740,"Total Phosphorus","11/16/2011",0.011,0.011,"ppm",TRUE
+14740,"Total Phosphorus","11/16/2011",0.011,0.011,"ppm",TRUE
+14436,"Total Phosphorus","6/12/2012",0.006,0.009,"ppm",FALSE
+14436,"Total Phosphorus","6/12/2012",0.009,0.006,"ppm",FALSE
+16122,"Total Phosphorus","6/22/2012",0.014,0.016,"ppm",TRUE
+16122,"Total Phosphorus","6/22/2012",0.016,0.014,"ppm",TRUE
+18215,"Total Phosphorus","6/21/2012",1.32,1.28,"ppm",TRUE
+18215,"Total Phosphorus","6/21/2012",1.28,1.32,"ppm",TRUE
+14263,"Total Phosphorus","6/29/2012",0.085,0.085,"ppm",TRUE
+14263,"Total Phosphorus","6/29/2012",0.085,0.085,"ppm",TRUE
+15703,"Total Phosphorus","7/2/2012",0.016,0.013,"ppm",TRUE
+15703,"Total Phosphorus","7/2/2012",0.013,0.016,"ppm",TRUE
+18159,"Total Phosphorus","7/3/2012",0.015,0.013,"ppm",TRUE
+18159,"Total Phosphorus","7/3/2012",0.013,0.015,"ppm",TRUE
+14288,"Total Phosphorus","7/5/2012",0.066,0.063,"ppm",TRUE
+14288,"Total Phosphorus","7/5/2012",0.063,0.066,"ppm",TRUE
+14396,"Total Phosphorus","7/12/2012",0.015,0.017,"ppm",TRUE
+14396,"Total Phosphorus","7/12/2012",0.017,0.015,"ppm",TRUE
+14578,"Total Phosphorus","7/16/2012",0.041,0.042,"ppm",TRUE
+14578,"Total Phosphorus","7/16/2012",0.042,0.041,"ppm",TRUE
+17568,"Total Phosphorus","9/19/2012",0.023,0.023,"ppm",TRUE
+17568,"Total Phosphorus","9/19/2012",0.023,0.023,"ppm",TRUE
+16121,"Total Phosphorus","9/19/2012",0.019,0.016,"ppm",TRUE
+16121,"Total Phosphorus","9/19/2012",0.016,0.019,"ppm",TRUE
+14396,"Total Phosphorus","9/21/2012",0.006,0.008,"ppm",FALSE
+14396,"Total Phosphorus","9/21/2012",0.008,0.006,"ppm",TRUE
+16304,"Total Phosphorus","9/24/2012",0.03,0.028,"ppm",TRUE
+16304,"Total Phosphorus","9/24/2012",0.028,0.03,"ppm",TRUE
+14442,"Total Phosphorus","10/3/2012",0.01,0.012,"ppm",TRUE
+14442,"Total Phosphorus","10/3/2012",0.012,0.01,"ppm",TRUE
+14444,"Total Phosphorus","10/1/2012",0.027,0.029,"ppm",TRUE
+14444,"Total Phosphorus","10/1/2012",0.029,0.027,"ppm",TRUE
+15530,"Total Phosphorus","10/2/2012",0.009,0.012,"ppm",FALSE
+15530,"Total Phosphorus","10/2/2012",0.012,0.009,"ppm",TRUE
+14377,"Total Phosphorus","10/9/2012",0.01,0.01,"ppm",TRUE
+14377,"Total Phosphorus","10/9/2012",0.01,0.01,"ppm",TRUE
+15020,"Total Phosphorus","10/15/2012",0.017,0.017,"ppm",TRUE
+15020,"Total Phosphorus","10/15/2012",0.017,0.017,"ppm",TRUE
+14997,"Total Phosphorus","10/16/2012",0.021,0.019,"ppm",TRUE
+14997,"Total Phosphorus","10/16/2012",0.019,0.021,"ppm",TRUE
+14147,"Total Phosphorus","10/17/2012",0.141,0.133,"ppm",TRUE
+14147,"Total Phosphorus","10/17/2012",0.133,0.141,"ppm",TRUE
+14601,"Total Phosphorus","10/23/2012",0.039,0.041,"ppm",TRUE
+14601,"Total Phosphorus","10/23/2012",0.041,0.039,"ppm",TRUE
+14441,"Total Phosphorus","5/15/2013",0.001,0.012,"ppm",FALSE
+14441,"Total Phosphorus","5/15/2013",0.012,0.001,"ppm",FALSE
+14473,"Total Phosphorus","6/4/2013",0.026,0.028,"ppm",TRUE
+14473,"Total Phosphorus","6/4/2013",0.028,0.026,"ppm",TRUE
+14720,"Total Phosphorus","7/3/2013",0.01,0.008,"ppm",TRUE
+14720,"Total Phosphorus","7/3/2013",0.008,0.01,"ppm",TRUE
+14441,"Total Phosphorus","7/8/2013",0.249,0.219,"ppm",TRUE
+14441,"Total Phosphorus","7/8/2013",0.219,0.249,"ppm",TRUE
+14319,"Total Phosphorus","9/16/2013",0.019,0.019,"ppm",TRUE
+14319,"Total Phosphorus","9/16/2013",0.019,0.019,"ppm",TRUE
+16076,"Total Phosphorus","9/18/2013",0.017,0.018,"ppm",TRUE
+16076,"Total Phosphorus","9/18/2013",0.018,0.017,"ppm",TRUE
+14441,"Total Phosphorus","9/19/2013",0.012,0.01,"ppm",TRUE
+14441,"Total Phosphorus","9/19/2013",0.01,0.012,"ppm",TRUE
+15994,"Total Phosphorus","9/26/2013",0.02,0.025,"ppm",TRUE
+15994,"Total Phosphorus","9/26/2013",0.025,0.02,"ppm",TRUE
+14298,"Total Phosphorus","10/2/2013",0.017,0.018,"ppm",TRUE
+14298,"Total Phosphorus","10/2/2013",0.018,0.017,"ppm",TRUE
+14293,"Total Phosphorus","10/3/2013",0.027,0.027,"ppm",TRUE
+14293,"Total Phosphorus","10/3/2013",0.027,0.027,"ppm",TRUE
+14363,"Total Phosphorus","10/7/2013",0.073,0.072,"ppm",TRUE
+14363,"Total Phosphorus","10/7/2013",0.072,0.073,"ppm",TRUE
+15375,"Total Phosphorus","10/9/2013",0.017,0.015,"ppm",TRUE
+15375,"Total Phosphorus","10/9/2013",0.015,0.017,"ppm",TRUE
+16370,"Total Phosphorus","10/15/2013",0.015,0.012,"ppm",TRUE
+16370,"Total Phosphorus","10/15/2013",0.012,0.015,"ppm",TRUE
+16137,"Total Phosphorus","10/15/2013",0.014,0.014,"ppm",TRUE
+16137,"Total Phosphorus","10/15/2013",0.014,0.014,"ppm",TRUE
+16044,"Total Phosphorus","10/16/2013",0.03,0.027,"ppm",TRUE
+16044,"Total Phosphorus","10/16/2013",0.027,0.03,"ppm",TRUE
+14410,"Total Phosphorus","6/17/2014",0.022,0.024,"ppm",TRUE
+14410,"Total Phosphorus","6/17/2014",0.024,0.022,"ppm",TRUE
+16885,"Total Phosphorus","6/10/2014",0.018,0.018,"ppm",TRUE
+16885,"Total Phosphorus","6/10/2014",0.018,0.018,"ppm",TRUE
+14199,"Total Phosphorus","6/12/2014",0.014,0.015,"ppm",TRUE
+14199,"Total Phosphorus","6/12/2014",0.015,0.014,"ppm",TRUE
+14442,"Total Phosphorus","6/18/2014",0.012,0.012,"ppm",TRUE
+14442,"Total Phosphorus","6/18/2014",0.012,0.012,"ppm",TRUE
+15319,"Total Phosphorus","6/25/2014",0.025,0.025,"ppm",TRUE
+15319,"Total Phosphorus","6/25/2014",0.025,0.025,"ppm",TRUE
+14589,"Total Phosphorus","7/11/2014",0.022,0.023,"ppm",TRUE
+14589,"Total Phosphorus","7/11/2014",0.023,0.022,"ppm",TRUE
+14724,"Total Phosphorus","7/16/2014",0.011,0.011,"ppm",TRUE
+14724,"Total Phosphorus","7/16/2014",0.011,0.011,"ppm",TRUE
+14724,"Total Phosphorus","7/16/2014",0.011,0.02,"ppm",FALSE
+14724,"Total Phosphorus","7/16/2014",0.02,0.011,"ppm",FALSE
+15179,"Total Phosphorus","7/17/2014",0.015,0.017,"ppm",TRUE
+15179,"Total Phosphorus","7/17/2014",0.017,0.015,"ppm",TRUE
+14602,"Total Phosphorus","7/18/2014",0.021,0.019,"ppm",TRUE
+14602,"Total Phosphorus","7/18/2014",0.019,0.021,"ppm",TRUE
+14599,"Total Phosphorus","8/1/2014",0.01,0.01,"ppm",TRUE
+14599,"Total Phosphorus","8/1/2014",0.01,0.01,"ppm",TRUE
+16734,"Total Phosphorus","8/8/2014",0.015,0.012,"ppm",TRUE
+16734,"Total Phosphorus","8/8/2014",0.012,0.015,"ppm",TRUE
+16212,"Total Phosphorus","8/14/2014",0.098,0.094,"ppm",TRUE
+16212,"Total Phosphorus","8/14/2014",0.094,0.098,"ppm",TRUE
+18755,"Total Phosphorus","8/21/2014",0.011,0.013,"ppm",TRUE
+18755,"Total Phosphorus","8/21/2014",0.013,0.011,"ppm",TRUE
+18753,"Total Phosphorus","8/21/2014",0.065,0.031,"ppm",FALSE
+18753,"Total Phosphorus","8/21/2014",0.031,0.065,"ppm",FALSE
+17852,"Total Phosphorus","8/27/2014",0.011,0.022,"ppm",FALSE
+17852,"Total Phosphorus","8/27/2014",0.022,0.011,"ppm",FALSE
+14582,"Total Phosphorus","9/15/2014",0.189,0.19,"ppm",TRUE
+14582,"Total Phosphorus","9/15/2014",0.19,0.189,"ppm",TRUE
+16370,"Total Phosphorus","9/23/2014",0.008,0.009,"ppm",TRUE
+14341,"Total Phosphorus","9/23/2014",0.014,0.014,"ppm",TRUE
+14341,"Total Phosphorus","9/23/2014",0.014,0.014,"ppm",TRUE
+14825,"Total Phosphorus","9/23/2014",0.021,0.021,"ppm",TRUE
+14825,"Total Phosphorus","9/23/2014",0.021,0.021,"ppm",TRUE
+14451,"Total Phosphorus","9/18/2014",0.106,0.104,"ppm",TRUE
+14451,"Total Phosphorus","9/18/2014",0.104,0.106,"ppm",TRUE
+16370,"Total Phosphorus","9/23/2014",0.009,0.008,"ppm",TRUE
+14599,"Total Phosphorus","10/10/2014",0.01,0.011,"ppm",TRUE
+14599,"Total Phosphorus","10/10/2014",0.011,0.01,"ppm",TRUE
+14879,"Total Phosphorus","10/9/2014",0.024,0.028,"ppm",TRUE
+14879,"Total Phosphorus","10/9/2014",0.028,0.024,"ppm",TRUE
+15567,"Total Phosphorus","10/9/2014",0.02,0.019,"ppm",TRUE
+15567,"Total Phosphorus","10/9/2014",0.019,0.02,"ppm",TRUE
+14738,"Total Phosphorus","10/9/2014",0.012,0.022,"ppm",FALSE
+14738,"Total Phosphorus","10/9/2014",0.022,0.012,"ppm",FALSE
+14581,"Total Phosphorus","10/7/2014",0.078,0.063,"ppm",TRUE
+14581,"Total Phosphorus","10/7/2014",0.063,0.078,"ppm",TRUE
+15720,"Total Phosphorus","10/7/2014",0.022,0.027,"ppm",TRUE
+15720,"Total Phosphorus","10/7/2014",0.027,0.022,"ppm",TRUE
+15008,"Total Phosphorus","10/7/2014",0.018,0.019,"ppm",TRUE
+15008,"Total Phosphorus","10/7/2014",0.019,0.018,"ppm",TRUE
+16112,"Total Phosphorus","10/2/2014",0.014,0.019,"ppm",FALSE
+16112,"Total Phosphorus","10/2/2014",0.019,0.014,"ppm",TRUE
+15796,"Total Phosphorus","6/3/2015",0.04,0.033,"ppm",TRUE
+15796,"Total Phosphorus","6/3/2015",0.033,0.04,"ppm",TRUE
+14404,"Total Phosphorus","6/8/2015",0.033,0.033,"ppm",TRUE
+14404,"Total Phosphorus","6/8/2015",0.033,0.033,"ppm",TRUE
+14450,"Total Phosphorus","6/8/2015",0.033,0.033,"ppm",TRUE
+14450,"Total Phosphorus","6/8/2015",0.033,0.033,"ppm",TRUE
+14410,"Total Phosphorus","7/6/2015",0.02,0.019,"ppm",TRUE
+14410,"Total Phosphorus","7/6/2015",0.019,0.02,"ppm",TRUE
+17271,"Total Phosphorus","7/17/2015",0.014,0.016,"ppm",TRUE
+17271,"Total Phosphorus","7/17/2015",0.016,0.014,"ppm",TRUE
+15703,"Total Phosphorus","7/29/2015",0.012,0.015,"ppm",TRUE
+15703,"Total Phosphorus","7/29/2015",0.015,0.012,"ppm",TRUE
+14804,"Total Phosphorus","8/28/2015",0.055,0.062,"ppm",TRUE
+14804,"Total Phosphorus","8/28/2015",0.062,0.055,"ppm",TRUE
+18159,"Total Phosphorus","9/14/2015",0.027,0.026,"ppm",TRUE
+18159,"Total Phosphorus","9/14/2015",0.026,0.027,"ppm",TRUE
+14441,"Total Phosphorus","9/15/2015",0.01,0.012,"ppm",TRUE
+14441,"Total Phosphorus","9/15/2015",0.012,0.01,"ppm",TRUE
+16221,"Total Phosphorus","9/15/2015",0.027,0.021,"ppm",TRUE
+16221,"Total Phosphorus","9/15/2015",0.021,0.027,"ppm",TRUE
+16124,"Total Phosphorus","9/25/2015",0.018,0.019,"ppm",TRUE
+16124,"Total Phosphorus","9/25/2015",0.019,0.018,"ppm",TRUE
+15315,"Total Phosphorus","10/1/2015",0.019,0.017,"ppm",TRUE
+15315,"Total Phosphorus","10/1/2015",0.017,0.019,"ppm",TRUE
+17295,"Total Phosphorus","10/1/2015",0.024,0.019,"ppm",TRUE
+17295,"Total Phosphorus","10/1/2015",0.019,0.024,"ppm",TRUE
+14720,"Total Phosphorus","10/5/2015",0.012,0.011,"ppm",TRUE
+14720,"Total Phosphorus","10/5/2015",0.011,0.012,"ppm",TRUE
+14863,"Total Phosphorus","11/17/2015",0.008,0.008,"ppm",TRUE
+14863,"Total Phosphorus","11/17/2015",0.008,0.008,"ppm",TRUE
+14444,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14445,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14444,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14445,"Nitrite","7/13/2011",0.003,0.003,"ppm",TRUE
+14221,"Nitrite","6/30/2011",0.003,0.003,"ppm",TRUE
+14221,"Nitrite","6/30/2011",0.003,0.003,"ppm",TRUE
+16387,"Nitrite","7/19/2011",0.003,0.003,"ppm",TRUE
+16387,"Nitrite","7/19/2011",0.003,0.003,"ppm",TRUE
+14711,"Nitrite","7/29/2011",0.012,0.012,"ppm",TRUE
+14711,"Nitrite","7/29/2011",0.012,0.012,"ppm",TRUE
+15571,"Nitrite","7/28/2011",0.003,0.003,"ppm",TRUE
+15571,"Nitrite","7/28/2011",0.003,0.003,"ppm",TRUE
+16110,"Nitrite","7/29/2011",0.003,0.003,"ppm",TRUE
+16110,"Nitrite","7/29/2011",0.003,0.003,"ppm",TRUE
+14206,"Nitrite","8/26/2011",0.003,0.003,"ppm",TRUE
+14206,"Nitrite","8/26/2011",0.003,0.003,"ppm",TRUE
+16119,"Nitrite","10/12/2011",0.003,0.003,"ppm",TRUE
+16119,"Nitrite","10/12/2011",0.003,0.003,"ppm",TRUE
+16325,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+16325,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+14226,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+14226,"Nitrite","10/17/2011",0.005,0.005,"ppm",TRUE
+15087,"Nitrite","10/18/2011",0.005,0.005,"ppm",TRUE
+15087,"Nitrite","10/18/2011",0.005,0.005,"ppm",TRUE
+14247,"Nitrite","10/21/2011",0.003,0.003,"ppm",TRUE
+14247,"Nitrite","10/21/2011",0.003,0.003,"ppm",TRUE
+14316,"Nitrite","10/26/2011",0.01,0.003,"ppm",FALSE
+14316,"Nitrite","10/26/2011",0.003,0.01,"ppm",FALSE
+14612,"Nitrite","11/7/2011",0.01,0.01,"ppm",TRUE
+14612,"Nitrite","11/7/2011",0.01,0.01,"ppm",TRUE
+15240,"Nitrite","11/10/2011",0.009,0.009,"ppm",TRUE
+15240,"Nitrite","11/10/2011",0.009,0.009,"ppm",TRUE
+15516,"Nitrite","11/10/2011",0.012,0.006,"ppm",FALSE
+15516,"Nitrite","11/10/2011",0.006,0.012,"ppm",FALSE
+14792,"Nitrite","11/14/2011",0.01,0.009,"ppm",TRUE
+14792,"Nitrite","11/14/2011",0.009,0.01,"ppm",TRUE
+14317,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+17747,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+14317,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+17747,"Nitrite","11/14/2011",0.013,0.013,"ppm",TRUE
+15556,"Nitrite","11/15/2011",0.009,0.009,"ppm",TRUE
+15556,"Nitrite","11/15/2011",0.009,0.009,"ppm",TRUE
+14740,"Nitrite","11/16/2011",0.004,0.004,"ppm",TRUE
+14740,"Nitrite","11/16/2011",0.004,0.004,"ppm",TRUE
+14436,"Nitrite","6/12/2012",0.007,0.007,"ppm",TRUE
+14436,"Nitrite","6/12/2012",0.007,0.007,"ppm",TRUE
+16122,"Nitrite","6/22/2012",0.003,0.003,"ppm",TRUE
+16122,"Nitrite","6/22/2012",0.003,0.003,"ppm",TRUE
+18215,"Nitrite","6/21/2012",0.007,0.007,"ppm",TRUE
+18215,"Nitrite","6/21/2012",0.007,0.007,"ppm",TRUE
+14263,"Nitrite","6/29/2012",0.013,0.014,"ppm",TRUE
+14263,"Nitrite","6/29/2012",0.014,0.013,"ppm",TRUE
+15703,"Nitrite","7/2/2012",0.003,0.003,"ppm",TRUE
+15703,"Nitrite","7/2/2012",0.003,0.003,"ppm",TRUE
+18159,"Nitrite","7/3/2012",0.004,0.004,"ppm",TRUE
+18159,"Nitrite","7/3/2012",0.004,0.004,"ppm",TRUE
+14288,"Nitrite","7/5/2012",0.008,0.003,"ppm",FALSE
+14288,"Nitrite","7/5/2012",0.003,0.008,"ppm",FALSE
+14396,"Nitrite","7/12/2012",0.003,0.003,"ppm",TRUE
+14396,"Nitrite","7/12/2012",0.003,0.003,"ppm",TRUE
+14578,"Nitrite","7/16/2012",0.012,0.009,"ppm",TRUE
+14578,"Nitrite","7/16/2012",0.009,0.012,"ppm",FALSE
+17568,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+17568,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+16121,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+16121,"Nitrite","9/19/2012",0.003,0.003,"ppm",TRUE
+14396,"Nitrite","9/21/2012",0.003,0.003,"ppm",TRUE
+14396,"Nitrite","9/21/2012",0.003,0.003,"ppm",TRUE
+16304,"Nitrite","9/24/2012",0.013,0.014,"ppm",TRUE
+16304,"Nitrite","9/24/2012",0.014,0.013,"ppm",TRUE
+14442,"Nitrite","10/3/2012",0.004,0.006,"ppm",FALSE
+14442,"Nitrite","10/3/2012",0.006,0.004,"ppm",FALSE
+14444,"Nitrite","10/1/2012",0.008,0.007,"ppm",TRUE
+14444,"Nitrite","10/1/2012",0.007,0.008,"ppm",TRUE
+15530,"Nitrite","10/2/2012",0.004,0.006,"ppm",FALSE
+15530,"Nitrite","10/2/2012",0.006,0.004,"ppm",FALSE
+14377,"Nitrite","10/9/2012",0.012,0.011,"ppm",TRUE
+14377,"Nitrite","10/9/2012",0.011,0.012,"ppm",TRUE
+15020,"Nitrite","10/15/2012",0.003,0.003,"ppm",TRUE
+15020,"Nitrite","10/15/2012",0.003,0.003,"ppm",TRUE
+14997,"Nitrite","10/16/2012",0.006,0.003,"ppm",FALSE
+14997,"Nitrite","10/16/2012",0.003,0.006,"ppm",FALSE
+14147,"Nitrite","10/17/2012",0.024,0.029,"ppm",TRUE
+14147,"Nitrite","10/17/2012",0.029,0.024,"ppm",TRUE
+14601,"Nitrite","10/23/2012",0.006,0.005,"ppm",TRUE
+14601,"Nitrite","10/23/2012",0.005,0.006,"ppm",TRUE
+14441,"Nitrite","5/15/2013",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","5/15/2013",0.003,0.003,"ppm",TRUE
+14473,"Nitrite","6/4/2013",0.005,0.005,"ppm",TRUE
+14473,"Nitrite","6/4/2013",0.005,0.005,"ppm",TRUE
+14720,"Nitrite","7/3/2013",0.003,0.003,"ppm",TRUE
+14720,"Nitrite","7/3/2013",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","7/8/2013",0.003,0.004,"ppm",FALSE
+14441,"Nitrite","7/8/2013",0.004,0.003,"ppm",TRUE
+14319,"Nitrite","9/16/2013",0.035,0.034,"ppm",TRUE
+14319,"Nitrite","9/16/2013",0.034,0.035,"ppm",TRUE
+16076,"Nitrite","9/18/2013",0.003,0.006,"ppm",FALSE
+16076,"Nitrite","9/18/2013",0.006,0.003,"ppm",FALSE
+14441,"Nitrite","9/19/2013",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","9/19/2013",0.003,0.003,"ppm",TRUE
+15994,"Nitrite","9/26/2013",0.003,0.003,"ppm",TRUE
+15994,"Nitrite","9/26/2013",0.003,0.003,"ppm",TRUE
+14298,"Nitrite","10/2/2013",0.003,0.003,"ppm",TRUE
+14298,"Nitrite","10/2/2013",0.003,0.003,"ppm",TRUE
+14293,"Nitrite","10/3/2013",0.003,0.003,"ppm",TRUE
+14293,"Nitrite","10/3/2013",0.003,0.003,"ppm",TRUE
+14363,"Nitrite","10/7/2013",0.003,0.003,"ppm",TRUE
+14363,"Nitrite","10/7/2013",0.003,0.003,"ppm",TRUE
+15375,"Nitrite","10/9/2013",0.003,0.003,"ppm",TRUE
+15375,"Nitrite","10/9/2013",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16137,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16137,"Nitrite","10/15/2013",0.003,0.003,"ppm",TRUE
+16044,"Nitrite","10/16/2013",0.003,0.003,"ppm",TRUE
+16044,"Nitrite","10/16/2013",0.003,0.003,"ppm",TRUE
+14410,"Nitrite","6/17/2014",0.003,0.004,"ppm",FALSE
+14410,"Nitrite","6/17/2014",0.004,0.003,"ppm",TRUE
+16885,"Nitrite","6/10/2014",0.003,0.003,"ppm",TRUE
+16885,"Nitrite","6/10/2014",0.003,0.003,"ppm",TRUE
+14199,"Nitrite","6/12/2014",0.003,0.003,"ppm",TRUE
+14199,"Nitrite","6/12/2014",0.003,0.003,"ppm",TRUE
+14442,"Nitrite","6/18/2014",0.003,0.003,"ppm",TRUE
+14442,"Nitrite","6/18/2014",0.003,0.003,"ppm",TRUE
+15319,"Nitrite","6/25/2014",0.008,0.007,"ppm",TRUE
+15319,"Nitrite","6/25/2014",0.007,0.008,"ppm",TRUE
+14589,"Nitrite","7/11/2014",0.003,0.004,"ppm",FALSE
+14589,"Nitrite","7/11/2014",0.004,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+14724,"Nitrite","7/16/2014",0.003,0.003,"ppm",TRUE
+15179,"Nitrite","7/17/2014",0.003,0.003,"ppm",TRUE
+15179,"Nitrite","7/17/2014",0.003,0.003,"ppm",TRUE
+14602,"Nitrite","7/18/2014",0.003,0.003,"ppm",TRUE
+14602,"Nitrite","7/18/2014",0.003,0.003,"ppm",TRUE
+14599,"Nitrite","8/1/2014",0.003,0.003,"ppm",TRUE
+14599,"Nitrite","8/1/2014",0.003,0.003,"ppm",TRUE
+16734,"Nitrite","8/8/2014",0.003,0.011,"ppm",FALSE
+16734,"Nitrite","8/8/2014",0.011,0.003,"ppm",FALSE
+16212,"Nitrite","8/14/2014",0.003,0.003,"ppm",TRUE
+16212,"Nitrite","8/14/2014",0.003,0.003,"ppm",TRUE
+18755,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+18755,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+18753,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+18753,"Nitrite","8/21/2014",0.003,0.003,"ppm",TRUE
+17852,"Nitrite","8/27/2014",0.003,0.003,"ppm",TRUE
+17852,"Nitrite","8/27/2014",0.003,0.003,"ppm",TRUE
+14582,"Nitrite","9/15/2014",0.003,0.003,"ppm",TRUE
+14582,"Nitrite","9/15/2014",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","9/23/2014",0.003,0.003,"ppm",TRUE
+14341,"Nitrite","9/23/2014",0.004,0.003,"ppm",TRUE
+14341,"Nitrite","9/23/2014",0.003,0.004,"ppm",FALSE
+14825,"Nitrite","9/23/2014",0.008,0.009,"ppm",TRUE
+14825,"Nitrite","9/23/2014",0.009,0.008,"ppm",TRUE
+14451,"Nitrite","9/18/2014",0.003,0.003,"ppm",TRUE
+14451,"Nitrite","9/18/2014",0.003,0.003,"ppm",TRUE
+16370,"Nitrite","9/23/2014",0.003,0.003,"ppm",TRUE
+14599,"Nitrite","10/10/2014",0.03,0.034,"ppm",TRUE
+14599,"Nitrite","10/10/2014",0.034,0.03,"ppm",TRUE
+14879,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14879,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+15567,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+15567,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14738,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14738,"Nitrite","10/9/2014",0.003,0.003,"ppm",TRUE
+14581,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+14581,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15720,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15720,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15008,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+15008,"Nitrite","10/7/2014",0.003,0.003,"ppm",TRUE
+16112,"Nitrite","10/2/2014",0.003,0.003,"ppm",TRUE
+16112,"Nitrite","10/2/2014",0.003,0.003,"ppm",TRUE
+15796,"Nitrite","6/3/2015",0.005,0.003,"ppm",FALSE
+15796,"Nitrite","6/3/2015",0.003,0.005,"ppm",FALSE
+14404,"Nitrite","6/8/2015",0.008,0.005,"ppm",FALSE
+14404,"Nitrite","6/8/2015",0.005,0.008,"ppm",FALSE
+14450,"Nitrite","6/8/2015",0.003,0.003,"ppm",TRUE
+14450,"Nitrite","6/8/2015",0.003,0.003,"ppm",TRUE
+14410,"Nitrite","7/6/2015",0.003,0.003,"ppm",TRUE
+14410,"Nitrite","7/6/2015",0.003,0.003,"ppm",TRUE
+17271,"Nitrite","7/17/2015",0.003,0.003,"ppm",TRUE
+17271,"Nitrite","7/17/2015",0.003,0.003,"ppm",TRUE
+15703,"Nitrite","7/29/2015",0.003,0.003,"ppm",TRUE
+15703,"Nitrite","7/29/2015",0.003,0.003,"ppm",TRUE
+14804,"Nitrite","8/28/2015",0.003,0.003,"ppm",TRUE
+14804,"Nitrite","8/28/2015",0.003,0.003,"ppm",TRUE
+18159,"Nitrite","9/14/2015",0.003,0.003,"ppm",TRUE
+18159,"Nitrite","9/14/2015",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+14441,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+16221,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+16221,"Nitrite","9/15/2015",0.003,0.003,"ppm",TRUE
+16124,"Nitrite","9/25/2015",0.003,0.003,"ppm",TRUE
+16124,"Nitrite","9/25/2015",0.003,0.003,"ppm",TRUE
+15315,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+15315,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+17295,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+17295,"Nitrite","10/1/2015",0.003,0.003,"ppm",TRUE
+14720,"Nitrite","10/5/2015",0.003,0.003,"ppm",TRUE
+14720,"Nitrite","10/5/2015",0.003,0.003,"ppm",TRUE
+14863,"Nitrite","11/17/2015",0.003,0.004,"ppm",FALSE
+14863,"Nitrite","11/17/2015",0.004,0.003,"ppm",TRUE
