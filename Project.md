@@ -22,6 +22,10 @@ See [below](#getStarted) for some ideas to get started.  We first want to get ga
 
 5.  Try writing some code to answer the questions at the bottom of the script.
 
+6. As you work, push changes to the repo frequently!  By doing so I can peak in to help as needed and collaborate.
+
+7. Post your progress, changes, comments, questions, thoughts or anything else project related on the slack channel. 
+
 ### <a name="dbtables"></a> Description of data in DB Tables
 
 ---
