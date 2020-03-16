@@ -10,3 +10,5 @@ https://cteco.uconn.edu/guides/Subregional_Basin.htm
 https://github.com/pawelsalawa/sqlitestudio
 
 https://sqlitestudio.pl/index.rvt
+
+https://portal.ct.gov/-/media/DEEP/water/water_quality_management/monitoringpubs/coreelementsummaryreport20062010pdf.pdf?la=en
