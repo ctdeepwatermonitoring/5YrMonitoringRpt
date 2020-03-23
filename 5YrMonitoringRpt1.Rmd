@@ -117,3 +117,4 @@ length(`Chlorophyll-a Plankton`$value)
 length(chem1$station_type)
           
 #How many river and stream samples (excluding duplicates) were collected in each year?
+unique(chem1$collect_date)
