@@ -1,3 +1,8 @@
+#install
+install.packages("dplyr")
+install.packages("stringr")
+install.packages("stringi")
+
 library('RSQLite')
 db_path <- paste0(getwd(),'/data/')
 db <- dbConnect(SQLite(), dbname=paste(db_path,"monrpt.db",sep=''));
@@ -36,6 +41,8 @@ chemMdl<-merge(chem1,mdl,by="chemparameter",all.x=TRUE)
 chemMdl$valueMDL<-ifelse(is.na(chemMdl$value),chemMdl$MDL,chemMdl$value)
 
 chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
+
+parametername<-chem[4]
 
 #Parse chemparameter data:
 Magnesium<-chem_basin[chem_basin$chemparameter=="Magnesium"&chem_basin$duplicate==0,]
@@ -91,6 +98,12 @@ length(`Total Organic Carbon`$value)
 length(Silica$value)
 length(`Chlorophyll-a Plankton`$value)
 
+
+for (n in 1:nrow(parametername)) {
+    samplenum<-
+    print(paste(chemparameter[n]))
+}
+
 #Do all of the samples have the same unit of measure for each given parameter?
   unique(Magnesium$uom)
   unique(Nitrate$uom)
@@ -117,3 +130,8 @@ length(`Chlorophyll-a Plankton`$value)
 length(chem1$station_type)
           
 #How many river and stream samples (excluding duplicates) were collected in each year?
+dates<-(chem$collect_date)
+
+chemdate1<-unique(dates$collect_date)
+
+#How many sites were collected in more than one year? 
