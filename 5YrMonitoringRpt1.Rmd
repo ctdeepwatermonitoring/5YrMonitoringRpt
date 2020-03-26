@@ -2,6 +2,10 @@
 install.packages("dplyr")
 install.packages("stringr")
 install.packages("stringi")
+install.packages("tidyverse")
+install.packages("lubridate")
+
+
 
 library('RSQLite')
 db_path <- paste0(getwd(),'/data/')
@@ -42,9 +46,16 @@ chemMdl$valueMDL<-ifelse(is.na(chemMdl$value),chemMdl$MDL,chemMdl$value)
 
 chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
 
-parametername<-chem[4]
+parametername<-chem[4]  
 
 #Parse chemparameter data:
+
+for (i in 1:length((chemparameter))) {
+  chemunique<-unique(chem$chemparameter)
+  parameter.i<-chem_basin[chem_basin$chemparameter==chemunique[i]&chem_basin$duplicate==0,]
+}
+
+
 Magnesium<-chem_basin[chem_basin$chemparameter=="Magnesium"&chem_basin$duplicate==0,]
 Nitrite<-chem_basin[chem_basin$chemparameter=="Nitrite"&chem_basin$duplicate==0,]
 Nitrate<-chem_basin[chem_basin$chemparameter=="Nitrate"&chem_basin$duplicate==0,]
@@ -98,12 +109,30 @@ length(`Total Organic Carbon`$value)
 length(Silica$value)
 length(`Chlorophyll-a Plankton`$value)
 
+#test 
+--------
+chemunique<-unique(chem$chemparameter)
 
 for (n in 1:nrow(parametername)) {
     samplenum<-
     print(paste(chemparameter[n]))
 }
 
+for (i in 1:length(unique(chemunique))) {
+  print(chemunique[i])
+}
+
+for (row in 1:nrow(chem_basin)) {
+  chemparameter<- chem_basin[row, "Magnesium"]
+  chemparameter<- chem_basin[row, "Magnesium"]
+  chemparameter<-as.matrix(chemparameter)
+  if(chem_basin==chemparameter) {
+    print(paste("Magnesium", 
+                "Nitrite","Nitrate","Ammonia","Calcium","Hardness"))
+  }
+}
+
+--------
 #Do all of the samples have the same unit of measure for each given parameter?
   unique(Magnesium$uom)
   unique(Nitrate$uom)
@@ -130,8 +159,17 @@ for (n in 1:nrow(parametername)) {
 length(chem1$station_type)
           
 #How many river and stream samples (excluding duplicates) were collected in each year?
-dates<-(chem$collect_date)
+datesvec<-(chem$collect_date)
+dates <- data.frame(dates, stringsAsFactors = FALSE)
 
-chemdate1<-unique(dates$collect_date)
+dates %>% 
+  separate(dates, c("month", "day", "year"), sep = "/")
+
+
+
+
+chemdate1<-unique(dates$`collect_date`)
 
 #How many sites were collected in more than one year? 
+
+
