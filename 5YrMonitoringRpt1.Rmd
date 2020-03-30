@@ -4,8 +4,9 @@ install.packages("stringr")
 install.packages("stringi")
 install.packages("tidyverse")
 install.packages("lubridate")
-
+-----------------------------
 library('RSQLite')
+setwd("C:/Users/kevin/Documents/Projects/GitHub/DEEP QA/5YrMonitoringRpt")
 db_path <- paste0(getwd(),'/data/')
 db <- dbConnect(SQLite(), dbname=paste(db_path,"monrpt.db",sep=''));
 
@@ -39,70 +40,56 @@ sitesbasin<-dbGetQuery(conn=db,SQL)
 
 dbDisconnect(db);
 
+chem1<-chem[,c(1,3:6,11:12)]
 chemMdl<-merge(chem1,mdl,by="chemparameter",all.x=TRUE)
 chemMdl$valueMDL<-ifelse(is.na(chemMdl$value),chemMdl$MDL,chemMdl$value)
 
 chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
-chem1<-chem[,c(1,3:6,11:12)]
-parametername<-chem[4]  
 
+parametername<-chem[4]  
+--------------------------
 #Parse chemparameter data:
---------------------
+
+    #take unique chem parameters
 chemunique<-unique(chem$chemparameter)
-ChemP <- data.frame(chemparameter=character(), 
+
+    #create empty dataframe that stores name & count of samples
+ChemSamp <- data.frame(chemparameter=character(), 
                 numsample=integer(), 
                 stringsAsFactors=FALSE)
 
-
-for (i in 1:length((chemunique))) {
-  parameter.i<-chem_basin[chem_basin$chemparameter==chemunique[i]&chem_basin$duplicate==0,]
-  print(parameter.i)
+for (i in 1:length(chemunique)) {
+  chem = chemunique[i]
+  
+     ##Parse out data 
+      #df of all values
+  chem_total <-chem_basin[chem_basin$chemparameter==chem & chem_basin$duplicate==0, ]
 }
---------------------
-chempara1<-ncol(data.frame(chem_basin$chemparameter))
-Magnesium <-lapply(chemparameter, function(x) NULL)
-Nitrite<-lapply(chemparameter, function(x) NULL)
-Nitrate<-lapply(chemparameter, function(x) NULL)
-Ammonia<-lapply(chemparameter, function(x) NULL)
-Calcium<-lapply(chemparameter, function(x) NULL)
-Hardness<-lapply(chemparameter, function(x) NULL)
-Organic.Nitrogen<-lapply(chemparameter, function(x) NULL)
-Ortho.Phosphate<-lapply(chemparameter, function(x) NULL)
-pH<-lapply(chemparameter, function(x) NULL)
-Total.Kjeldahl.Nitrogen<-lapply(chemparameter, function(x) NULL)
-Total.Nitrogen<-lapply(chemparameter, function(x) NULL)
-Total.Solids<-lapply(chemparameter, function(x) NULL)
-Total.Suspended.Solids<-lapply(chemparameter, function(x) NULL)
-Turbidity<-lapply(chemparameter, function(x) NULL)
-Alkalinity<-lapply(chemparameter, function(x) NULL)
-Total.Phosphorous<-lapply(chemparameter, function(x) NULL)
-Chloride<-lapply(chemparameter, function(x) NULL)
-Total.Organic.Carbon<-lapply(chemparameter, function(x) NULL)
-Silica<-lapply(chemparameter, function(x) NULL)
-Chlorophyll.a.Plankton<-lapply(chemparameter, function(x) NULL)
-Nitrate.Nitrite<-lapply(chemparameter, function(x) NULL)
 
 for (i in 1:length(chemunique)) {
-  Magnesium[[i]] <- data.frame(chem_basin[chem_basin$chemparameter==chemunique[i]&chem_basin$duplicate==0,])
-
-  numsample<- vector(mode = "numeric",length=length(chemunique))
-  chemsampP<- data.frame(chemunique=character(),
-                         numsample=integer(),
-                         stringsAsFactors = FALSE)
-  Chembind<-rbind(chemcount,chemsampP)
-  print(Chembind)
+  
+    #Set specific chemical parameter
+  chempara <- chemunique[i]
+  
+    #create df of specific chemical parameter
+  chemi <- chem[which(chem$chemparameter == chempara), ]
+  ChemSampParam <- rbind(ChemSamp, chemi)
 }
 
-
+---------------------------
 #what chemical parameters were collected?
+
 unique(chem$chemparameter)
 
+---------------------------
 #How many river and stream sites were samples from 2011 through 2015?
-length(chem1$sta_seq)
 
+length(chem$sta_seq)
+
+---------------------------
 #How many samples were collected for each chemical parameter at river/stream sites? 
-length(Magnesium[[1]]$chemparameter)
 
+length(Magnesium[[1]]$chemparameter)
 length(Nitrate$value)
 length(`Nitrate/Nitrite`$value)
 length(Ammonia$value)
@@ -124,7 +111,7 @@ length(Silica$value)
 length(`Chlorophyll-a Plankton`$value)
 
 #test 
---------
+----------------------------------------
 chemunique<-unique(chem$chemparameter)
 
 for (n in 1:nrow(parametername)) {
@@ -146,10 +133,9 @@ for (row in 1:nrow(chem_basin)) {
   }
 }
 
---------
+----------------------------------------
 #Do all of the samples have the same unit of measure for each given parameter?
   unique(Magnesium[[1]]$uom)
-  
   unique(Nitrate$uom)
   unique(`Nitrate/Nitrite`$uom)
   unique(Ammonia$uom)
@@ -169,22 +155,26 @@ for (row in 1:nrow(chem_basin)) {
   unique(`Total Organic Carbon`$uom)
   unique(Silica$uom)
   unique(`Chlorophyll-a Plankton`$uom)
-
+----------------------------------------
 #How many river and stream samples were collected excluding duplicates?
 length(chem1$station_type)
-          
+----------------------------------------          
 #How many river and stream samples (excluding duplicates) were collected in each year?
-datesvec<-(chem$collect_date)
+    
+    #parse out dates column
+dates <- chem1[2]
+    
+    #create vector
+datesvec<-(dates$collect_date)
+    
+    #create df for dates
 dates <- data.frame(dates, stringsAsFactors = FALSE)
-
+    
+    #separate dates into "month", "day", "year"
 dates %>% 
   separate(dates, c("month", "day", "year"), sep = "/")
 
-
-
-
-chemdate1<-unique(dates$`collect_date`)
-
+----------------------------------------
 #How many sites were collected in more than one year? 
 
 #What sites were collected in more than one year and how many years were collected?
