@@ -1,4 +1,4 @@
-#install
+#new package install
 install.packages("dplyr")
 install.packages("stringr")
 install.packages("stringi")
@@ -58,70 +58,57 @@ ChemSamp <- data.frame(chemparameter=character(),
                 numsample=integer(), 
                 stringsAsFactors=FALSE)
 
+    #parse out data by row for unique chem parameters
 for (i in 1:length(chemunique)) {
   chem = chemunique[i]
-  
-     ##Parse out data 
-      #df of all values
   chem_total <-chem_basin[chem_basin$chemparameter==chem & chem_basin$duplicate==0, ]
 }
 
 for (i in 1:length(chemunique)) {
+  chemChoice <- chemunique[i]
   
-    #Set specific chemical parameter
-  chempara <- chemunique[i]
-  
-    #create df of specific chemical parameter
-  chemi <- chem[which(chem$chemparameter == chempara), ]
-  ChemSampParam <- rbind(ChemSamp, chemi)
+    #create chem dataframe of specific chemical parameter
+  parameter.i <- chem_basin[which(chem_basin$chemparameter == chemChoice), ]
 }
 
 ---------------------------
 #what chemical parameters were collected?
 
-unique(chem$chemparameter)
+uniquechem<-unique(chem_basin$chemparameter)
+ChemParam<-data.frame(uniquechem)
 
 ---------------------------
-#How many river and stream sites were samples from 2011 through 2015?
+#How many river and stream sites were samples from 2011 through 2015? (edit)
 
-length(chem$sta_seq)
+NumberSites<-length(chem_basin$sta_seq)
+Number_of_sites<-data.frame(NumberSites)
 
 ---------------------------
 #How many samples were collected for each chemical parameter at river/stream sites? 
 
-length(Magnesium[[1]]$chemparameter)
-length(Nitrate$value)
-length(`Nitrate/Nitrite`$value)
-length(Ammonia$value)
-length(Calcium$value)
-length(Hardness$value)
-length(`Organic Nitrogen`$value)
-length(`Ortho Phosphate`$value)
-length(pH$value)
-length(`Total Kjeldahl Nitrogen`$value)
-length(`Total Nitrogen`$value)
-length(`Total Solids`$value)
-length(`Total Suspended Solids`$value)
-length(Turbidity$value)
-length(Alkalinity$value)
-length(`Total Phosphorous`$value)
-length(Chloride$value)
-length(`Total Organic Carbon`$value)
-length(Silica$value)
-length(`Chlorophyll-a Plankton`$value)
+    #create loop for unique chem parameters
+for (i in 1:length(chemunique)) {
+  
+    #create temp dataframe of specific chem parameter
+  temp_chemcount <- chem_basin[which(chem_basin$chemparameter == chemunique[i]), ]
+    
+    #vector w/ number of samples 
+  chemcount <- length(temp_chemcount$chemparameter)
+    
+    #dataframe of unique chem parameter and number of samples
+  ChemP <- data.frame(chemunique[i], chemcount)
+}
 
-#test 
+
+
+#test code (ignore)
 ----------------------------------------
-chemunique<-unique(chem$chemparameter)
 
 for (n in 1:nrow(parametername)) {
     samplenum<-
     print(paste(chemparameter[n]))
 }
 
-for (i in 1:length(unique(chemunique))) {
-  print(chemunique[i])
-}
 
 for (row in 1:nrow(chem_basin)) {
   chemparameter<- chem_basin[row, "Magnesium"]
@@ -135,29 +122,39 @@ for (row in 1:nrow(chem_basin)) {
 
 ----------------------------------------
 #Do all of the samples have the same unit of measure for each given parameter?
-  unique(Magnesium[[1]]$uom)
-  unique(Nitrate$uom)
-  unique(`Nitrate/Nitrite`$uom)
-  unique(Ammonia$uom)
-  unique(Calcium$uom)
-  unique(Hardness$uom)
-  unique(`Organic Nitrogen`$uom)
-  unique(`Ortho Phosphate`$uom)
-  unique(pH$uom)
-  unique(`Total Kjeldahl Nitrogen`$uom)
-  unique(`Total Nitrogen`$uom)
-  unique(`Total Solids`$uom)
-  unique(`Total Suspended Solids`$uom)
-  unique(Turbidity$uom)
-  unique(Alkalinity$uom)
-  unique(`Total Phosphorous`$uom)
-  unique(Chloride$uom)
-  unique(`Total Organic Carbon`$uom)
-  unique(Silica$uom)
-  unique(`Chlorophyll-a Plankton`$uom)
+  
+    #subset table 
+uom_chemparameter<-chem_basin[,c("chemparameter","uom")]
+
+    #columns treated as vectors
+(i in 1:ncol(uom_chemparameter)){uom_chemparameter[,i]=as.vector(uom_chemparameter[,i])})
+
+    #number of distinct values
+uom_match <- data.frame(uom_chemparameter %>%
+                     gather(key = "fields",value = "Value") %>%
+                     group_by(fields) %>%
+                     summarise(distinct_value_count = n_distinct(Value, na.rm = TRUE))
+)
+
+    #extract unique rows from table
+unique_uom <- data.frame(uom_chemparameter %>% distinct(chemparameter,uom,.keep_all = TRUE))
+
+    #find common values (dplyr)
+inner_join(uom_chemparameter, unique_uom)
+
+    #identify rows in uom_chemparameter that are not present in unique_uom (dplyr)
+
+error_uom<-data.frame(setdiff(uom_chemparameter, unique_uom))
+
 ----------------------------------------
 #How many river and stream samples were collected excluding duplicates?
-length(chem1$station_type)
+
+    #exclude duplicates
+nodup_chem<-distinct(chem_basin,.keep_all=TRUE)
+
+Num_of_sample<-length(nodup_chem$station_type)
+
+Num_riverstream<- data.frame(Num_of_sample)
 ----------------------------------------          
 #How many river and stream samples (excluding duplicates) were collected in each year?
     
