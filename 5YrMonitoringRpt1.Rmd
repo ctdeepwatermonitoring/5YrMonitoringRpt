@@ -165,12 +165,19 @@ dates <- chem1[2]
 datesvec<-(dates$collect_date)
     
     #create df for dates
-dates <- data.frame(dates, stringsAsFactors = FALSE)
+dates_total <- data.frame(dates, stringsAsFactors = FALSE)
     
     #separate dates into "month", "day", "year"
-dates %>% 
-  separate(dates, c("month", "day", "year"), sep = "/")
+monthdayyear<-data.frame(separate(dates_total,"collect_date", c("month", "day", "year"), sep = "/"))
 
+    #parse out year sample was taken
+sampleyear<-data.frame(monthdayyear[3])
+    
+    #vector of unique years samples were taken
+uniqueyear<- unique(sampleyear$year)
+
+    #create df of unique year and num of samples taken
+sampleyear.df<-data.frame(table(sampleyear))
 ----------------------------------------
 #How many sites were collected in more than one year? 
 
