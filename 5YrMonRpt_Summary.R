@@ -101,7 +101,19 @@ aggregate(chloride["value"],by=list(MajorBasin=chloride$major),FUN=summary)
 
 #What chemical parameters were collected?
 
+ChemP<-unique(chem$chemparameter)
+
 #How many samples were collected for each chemical parameter at river/stream sites?
+
+ChemSamp<-data.frame(parameter=character(),paramCnt=integer())
+
+for (i in 1:length(ChemP)){
+  parameter<-ChemP[i]
+  paramCnt<-dim(chem_basin[chem_basin$chemparameter==parameter&chem_basin$duplicate==0,])[1]
+  ChemSampParam<-data.frame(parameter,paramCnt)
+  ChemSamp<-rbind(ChemSamp,ChemSampParam)
+  
+}
 
 #Do all of the samples have the same unit of measure for each given parameter?
 
