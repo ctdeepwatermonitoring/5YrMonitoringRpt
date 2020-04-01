@@ -48,7 +48,7 @@ chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
 
 parametername<-chem[4]  
 --------------------------
-##Parse chemparameter data:
+  #Parse chemparameter data:
   
   #parse out data by row for unique chem parameters
 for (i in 1:length(chemunique)) {
