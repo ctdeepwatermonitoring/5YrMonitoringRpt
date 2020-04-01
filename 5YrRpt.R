@@ -175,5 +175,24 @@ more.than.one.sites<- sampleyear.df %>%
 length(more.than.one.sites$sta_seq)
 
 ------------------------------------------
-
 ##How many sites were collected in each major basin?
+
+    #subset chem_basin
+mbasn_basin<-subset(chem_basin,select = c("sta_seq","major"))
+    #create table 
+table.major.basin<-table(mbasn_basin)
+    #sta_seq as new column
+table.major.df<-cbind(sta_seq = row.names(table.major.basin), as.data.frame.matrix(table.major.basin))
+    #sum of individual columns excluding sta_seq column
+num.sites.per.mbasin<-colSums(table.major.basin[,-1])
+
+major_basin_sitescount<-data.frame(num.sites.per.mbasin)
+-------------------------------------------  
+
+## What percentage of subregional basins in the State have one or more samples?
+
+  
+  
+  
+  
+  
