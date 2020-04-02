@@ -64,7 +64,7 @@ ChemParam<-data.frame(uniquechem)
 ---------------------------
 ##How many river and stream sites were samples from 2011 through 2015? (edit)
   
-NumberSites<-length(chem_basin$sta_seq)
+NumberSites<-length(chem_basin$collect_date)
 Number_of_sites<-data.frame(NumberSites)
 
 ---------------------------
@@ -191,7 +191,23 @@ major_basin_sitescount<-data.frame(num.sites.per.mbasin)
 
 ## What percentage of subregional basins in the State have one or more samples?
 
-  
+library(dplyr)
+unique(chem_basin$sbasn)
+
+  #subset chem_basin 
+samples.sbasn <- subset(chem_basin, select = c("sbasn","sta_seq"))
+  #create frequency table
+samples.sbasn.table<-table(samples.sbasn)
+  #sbasn as column 1, convert to matrix df
+sbasn.df<-cbind(sbasn = row.names(samples.sbasn.table), as.data.frame.matrix(samples.sbasn.table))
+  #add sum of row as last column
+sbasn.total<-data.frame(cbind(sbasn.df, total = rowSums(sbasn.df[-1])))
+  #subset for sbasn and rowsum column
+sbasn.sample.frequency<-subset(sbasn.total,select = c("sbasn", "total"))
+  #count rows with more than one sample (sta_seq) 
+num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
+
+"percentage of subregional basins with more than one sample"<-print(100 * (num.sbasn.over1$n / length(unique(sbasn.df$sbasn))))  
   
   
   
