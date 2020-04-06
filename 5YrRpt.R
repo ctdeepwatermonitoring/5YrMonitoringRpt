@@ -268,11 +268,20 @@ DT.parameters <- rbindlist(list_parameters)
   #subset for parameter name and value
 DT.parameters <-subset(DT.parameters, select = c("chemparameter","value"))
 
-for (i in 1:length(chemunique)) {
-  chem.i<-chemunique[i]
-  parametersumm<-summary(DT.parameters[DT.parameters$chemparameter==chem.i&DT.parameters$duplicate==0,])
-  print(parametersumm)
-}  
+chemunique
+col<-match(DT.parameters$chemparameter, chemunique)
+row<-cumsum(c(0,diff(col))<=0)
+
+Param_summ <- matrix(nrow=max(row), ncol=max(col))
+colnames(Param_summ) <- chemunique
+Param_summ[cbind(row, col)] <- DT.parameters$value
+
+
+
+library(pastecs)
+options(scipen = 100)
+options(digits = 2)
+stat.desc(Param_summ)
   
 ##Only calculate summary statistics for river/stream samples and non-duplicates
   
