@@ -6,7 +6,7 @@ install.packages("tidyverse")
 install.packages("lubridate")
 -----------------------------
 library('RSQLite')
-setwd("C:/Users/kevin/Documents/Projects/GitHub/DEEP QA/5YrMonitoringRpt")
+setwd("/home/mkozlak/Documents/Projects/GitHub/5YrMonitoringRpt")
 db_path <- paste0(getwd(),'/data/')
 db <- dbConnect(SQLite(), dbname=paste(db_path,"monrpt.db",sep=''));
 
@@ -205,6 +205,23 @@ num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
 ---------------------------------------------
 
 ##What are the summary statistics for each parameter? (edit)
+  uniquechem<-unique(chem_basin$chemparameter)
+  
+#Create a dataframe
+summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
+                            Mean=numeric(),Q3 =numeric(),
+                            Max=numeric(),NAs=integer())
+
+for (i in 1:length(uniquechem)){
+  param<-chem_basin[chem_basin$chemparameter==uniquechem[i]&chem_basin$duplicate==0,4]
+  cntNA<-length(param[is.na(param)])
+  test<-(summary(param)[1:6])
+  test<-as.data.frame(as.matrix(test))
+  test<-data.frame(param=uniquechem[i],Min=test[1,],Q1=test[2,],Median=test[3,],
+                   Mean=test[4,],Q3=test[5,],Max=test[6,],NAs=cntNA)
+  summary_Stats<-rbind(test,summary_Stats)
+}
+
 
   #extract dfs for individual chemparameter
 DT.parameters1 <-subset(chem_basin, select = c("chemparameter","value"))
