@@ -45,9 +45,22 @@ chemMdl<-merge(chem1,mdl,by="chemparameter",all.x=TRUE)
 chemMdl$valueMDL<-ifelse(is.na(chemMdl$value),chemMdl$MDL,chemMdl$value)
 
 chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
-
-parametername<-chem[4]  
 --------------------------
+#vector of unique chemical parameters
+uniquechem<-unique(chem_basin$chemparameter)
+
+#extract dfs for individual chemparameter
+DT.parameters1 <-chem_basin[,c(1:13)]
+split.parameter1<-split(DT.parameters1,DT.parameters1$chemparameter)
+
+for (i in 1:length(chemunique)) {
+  parami<-chemunique[i]
+  
+  lapply(seq_along(split.parameter1), 
+         function(i,x) {assign(paste0(chemunique[i]),x[[i]], envir=.GlobalEnv)},
+         x=split.parameter1)
+}
+
 ---------------------------
 ##what chemical parameters were collected?
   
@@ -204,23 +217,24 @@ num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
   
 ---------------------------------------------
 
-##What are the summary statistics for each parameter? (edit)
+##What are the summary statistics for each parameter? ##Only calculate summary statistics for river/stream samples and non-duplicates
+uniquechem<-unique(chem_basin$chemparameter)
 
-  #extract dfs for individual chemparameter
-DT.parameters1 <-subset(chem_basin, select = c("chemparameter","value"))
-split.parameter1<-split(DT.parameters1,DT.parameters1$chemparameter)
+#Create a summary stats dataframe
+summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
+                          Mean=numeric(),Q3 =numeric(),
+                          Max=numeric(),NAs=integer())
 
-for (i in 1:length(chemunique)) {
-  parami<-chemunique[i]
-  
-  lapply(seq_along(split.parameter1), 
-         function(i,x) {assign(paste0(chemunique[i]),x[[i]], envir=.GlobalEnv)},
-         x=split.parameter1)
-}
+for (i in 1:length(uniquechem)){
+  param<-chem_basin[chem_basin$chemparameter==uniquechem[i]&chem_basin$duplicate==0,4]
+  cntNA<-length(param[is.na(param)])
+  test<-(summary(param)[1:6])
+  test<-as.data.frame(as.matrix(test))
+  test<-data.frame(param=uniquechem[i],Min=test[1,],Q1=test[2,],Median=test[3,],
+                   Mean=test[4,],Q3=test[5,],Max=test[6,],NAs=cntNA)
+  summary_Stats<-rbind(test,summary_Stats)
+}  
 
-
-  
-##Only calculate summary statistics for river/stream samples and non-duplicates
   
 ##What are the summary statistics for each parameter in each major basin?
   
