@@ -205,6 +205,7 @@ num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
 ---------------------------------------------
 
 ##What are the summary statistics for each parameter? (edit)
+  uniquechem<-unique(chem_basin$chemparameter)
   
 #Create a dataframe
 summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
