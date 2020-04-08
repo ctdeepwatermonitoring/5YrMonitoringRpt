@@ -1,10 +1,3 @@
-#new package install
-install.packages("dplyr")
-install.packages("stringr")
-install.packages("stringi")
-install.packages("tidyverse")
-install.packages("lubridate")
------------------------------
 library('RSQLite')
 setwd("C:/Users/kevin/Documents/Projects/GitHub/DEEP QA/5YrMonitoringRpt")
 db_path <- paste0(getwd(),'/data/')
@@ -216,10 +209,13 @@ num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
 "percentage of subregional basins with more than one sample"<-print(100 * (num.sbasn.over1$n / length(unique(sbasn.df$sbasn))))  
   
 ---------------------------------------------
-
 ##What are the summary statistics for each parameter? ##Only calculate summary statistics for river/stream samples and non-duplicates
 uniquechem<-unique(chem_basin$chemparameter)
-
+---------------------------------------------
+##What are the summary statistics for each parameter? (edit)
+  
+uniquechem<-unique(chem_basin$chemparameter)
+  
 #Create a summary stats dataframe
 summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
                           Mean=numeric(),Q3 =numeric(),
@@ -235,8 +231,24 @@ for (i in 1:length(uniquechem)){
   summary_Stats<-rbind(test,summary_Stats)
 }  
 
-  
+---------------------------------------------  
 ##What are the summary statistics for each parameter in each major basin?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 ##what are the summary stats for drainage area for the sites? By major basin?
   
