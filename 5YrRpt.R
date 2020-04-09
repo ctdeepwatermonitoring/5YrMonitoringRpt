@@ -46,11 +46,11 @@ uniquechem<-unique(chem_basin$chemparameter)
 DT.parameters1 <-chem_basin[,c(1:13)]
 split.parameter1<-split(DT.parameters1,DT.parameters1$chemparameter)
 
-for (i in 1:length(chemunique)) {
-  parami<-chemunique[i]
+for (i in 1:length(uniquechem)) {
+  parami<-uniquechem[i]
   
   lapply(seq_along(split.parameter1), 
-         function(i,x) {assign(paste0(chemunique[i]),x[[i]], envir=.GlobalEnv)},
+         function(i,x) {assign(paste0(uniquechem[i]),x[[i]], envir=.GlobalEnv)},
          x=split.parameter1)
 }
 
@@ -211,11 +211,7 @@ num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
 ---------------------------------------------
 ##What are the summary statistics for each parameter? ##Only calculate summary statistics for river/stream samples and non-duplicates
 uniquechem<-unique(chem_basin$chemparameter)
----------------------------------------------
-##What are the summary statistics for each parameter? (edit)
-  
-uniquechem<-unique(chem_basin$chemparameter)
-  
+
 #Create a summary stats dataframe
 summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
                           Mean=numeric(),Q3 =numeric(),
@@ -232,21 +228,33 @@ for (i in 1:length(uniquechem)){
 }  
 
 ---------------------------------------------  
-##What are the summary statistics for each parameter in each major basin?
+##What are the summary statistics for each parameter in each major basin? (edit)
+
+  for (i in 1:length(uniquechem)) {
+    param1<-uniquechem[i]
+    our_summary <-
+      list("param1" =
+             list("min" = ~ min(.data$value),
+                  "max" = ~ max(.data$value),
+                  "mean (sd)" = ~ qwraps2::mean_sd(.data$value)),
+           "median" = ~ median(.data$value))
+    
+  }
+summary <- summary.data.frame(dplyr::group_by(mbasin, major), our_summary)
+summary
 
 
 
+mbasin <- subset(chem_basin, select = c("chemparameter","value","major"))
 
+split.mbasin <- split(mbasin,mbasin$major)
 
-
-
-
-
-
-
-
-
-
+for (i in seq_along(split.mbasin)){
+  split.mbasin[[i]]$dfname <- names(split.mbasin)[i]
+  require(data.table)
+  DT <- rbindlist(split.mbasin, fill = TRUE)
+  DT[,lapply(.SD, mean), by =dfname]
+}
 
 
   

@@ -1,0 +1,119 @@
+library('RSQLite')
+db_path <- paste0(getwd(),'/data/')
+db <- dbConnect(SQLite(), dbname=paste(db_path,"monrpt.db",sep=''));
+
+SQL<- "SELECT *
+       FROM 
+          chemdata
+       WHERE
+          station_type='River/Stream' AND duplicate='0';"  
+chem<-dbGetQuery(conn=db,SQL);
+
+SQL<- "SELECT *
+       FROM 
+          mdl;"  
+mdl<-dbGetQuery(conn=db,SQL);          
+          
+SQL<-"SELECT
+        sites.sta_seq,
+        sites.name,
+        sites.ylat,
+        sites.xlong,
+        sites.sbasn,
+        basin.major,
+        basin.mbasn
+      FROM 
+        sites
+      JOIN 
+        basin
+      ON
+        sites.sbasn = basin.sbasn;"
+sitesbasin<-dbGetQuery(conn=db,SQL)    
+
+dbDisconnect(db);
+
+chemMdl<-merge(chem1,mdl,by="chemparameter",all.x=TRUE)
+chemMdl$valueMDL<-ifelse(is.na(chemMdl$value),chemMdl$MDL,chemMdl$value)
+
+chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
+
+#Parse chemparameter data:
+Magnesium<-chem_basin[chem_basin$chemparameter=="Magnesium"&chem_basin$duplicate==0,]
+Nitrite<-chem_basin[chem_basin$chemparameter=="Nitrite"&chem_basin$duplicate==0,]
+Nitrate<-chem_basin[chem_basin$chemparameter=="Nitrate"&chem_basin$duplicate==0,]
+Ammonia<-chem_basin[chem_basin$chemparameter=="Ammonia"&chem_basin$duplicate==0,]
+Calcium<-chem_basin[chem_basin$chemparameter=="Calcium"&chem_basin$duplicate==0,]
+Hardness<-chem_basin[chem_basin$chemparameter=="Hardness"&chem_basin$duplicate==0,]
+"Organic Nitrogen"<-chem_basin[chem_basin$chemparameter=="Organic Nitrogen"&chem_basin$duplicate==0,]
+"Ortho Phosphate"<-chem_basin[chem_basin$chemparameter=="Ortho Phosphate"&chem_basin$duplicate==0,]
+"pH"<-chem_basin[chem_basin$chemparameter=="pH"&chem_basin$duplicate==0,]
+"Total Kjeldahl Nitrogen"<-chem_basin[chem_basin$chemparameter=="Total Kjeldahl Nitrogen"&chem_basin$duplicate==0,]
+"Total Nitrogen"<-chem_basin[chem_basin$chemparameter=="Total Nitrogen"&chem_basin$duplicate==0,]
+"Total Solids"<-chem_basin[chem_basin$chemparameter=="Total Solids"&chem_basin$duplicate==0,]
+"Total Suspended Solids"<-chem_basin[chem_basin$chemparameter=="Total Suspended Solids"&chem_basin$duplicate==0,]
+Turbidity<-chem_basin[chem_basin$chemparameter=="Turbidity"&chem_basin$duplicate==0,]
+Alkalinity<-chem_basin[chem_basin$chemparameter=="Alkalinity"&chem_basin$duplicate==0,]
+"Total Phosphorous"<-chem_basin[chem_basin$chemparameter=="Total Phosphorous"&chem_basin$duplicate==0,]
+Chloride<-chem_basin[chem_basin$chemparameter=="Chloride"&chem_basin$duplicate==0,]
+"Total Organic Carbon"<-chem_basin[chem_basin$chemparameter=="Total Organic Carbon"&chem_basin$duplicate==0,]
+Silica<-chem_basin[chem_basin$chemparameter=="Silica"&chem_basin$duplicate==0,]
+"Chlorophyll-a Plankton"<-chem_basin[chem_basin$chemparameter=="Chlorophyll-a Plankton"&chem_basin$duplicate==0,]
+"Nitrate/Nitrite"<-chem_basin[chem_basin$chemparameter=="Nitrate/Nitrite"&chem_basin$duplicate==0,]
+
+
+#what chemical parameters were collected?
+unique(chem$chemparameter)
+
+chem1<-chem[,c(1,3:6,11:12)]
+
+#How many river and stream sites were samples from 2011 through 2015?
+length(chem1$sta_seq)
+
+#How many samples were collected for each chemical parameter at river/stream sites? 
+length(Magnesium$value)
+length(Nitrate$value)
+length(`Nitrate/Nitrite`$value)
+length(Ammonia$value)
+length(Calcium$value)
+length(Hardness$value)
+length(`Organic Nitrogen`$value)
+length(`Ortho Phosphate`$value)
+length(pH$value)
+length(`Total Kjeldahl Nitrogen`$value)
+length(`Total Nitrogen`$value)
+length(`Total Solids`$value)
+length(`Total Suspended Solids`$value)
+length(Turbidity$value)
+length(Alkalinity$value)
+length(`Total Phosphorous`$value)
+length(Chloride$value)
+length(`Total Organic Carbon`$value)
+length(Silica$value)
+length(`Chlorophyll-a Plankton`$value)
+
+#Do all of the samples have the same unit of measure for each given parameter?
+  unique(Magnesium$uom)
+  unique(Nitrate$uom)
+  unique(`Nitrate/Nitrite`$uom)
+  unique(Ammonia$uom)
+  unique(Calcium$uom)
+  unique(Hardness$uom)
+  unique(`Organic Nitrogen`$uom)
+  unique(`Ortho Phosphate`$uom)
+  unique(pH$uom)
+  unique(`Total Kjeldahl Nitrogen`$uom)
+  unique(`Total Nitrogen`$uom)
+  unique(`Total Solids`$uom)
+  unique(`Total Suspended Solids`$uom)
+  unique(Turbidity$uom)
+  unique(Alkalinity$uom)
+  unique(`Total Phosphorous`$uom)
+  unique(Chloride$uom)
+  unique(`Total Organic Carbon`$uom)
+  unique(Silica$uom)
+  unique(`Chlorophyll-a Plankton`$uom)
+
+#How many river and stream samples were collected excluding duplicates?
+length(chem1$station_type)
+          
+#How many river and stream samples (excluding duplicates) were collected in each year?
