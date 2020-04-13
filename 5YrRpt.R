@@ -250,4 +250,15 @@ mbasin.para<-data.frame(arrange(mbasin.para,MajorBasin))
 ---------------------------------------------  
 ##what are the summary stats for drainage area for the sites? By major basin?
   
+library(dplyr)
+StationMajor<-distinct(chem_basin,sta_seq, .keep_all = TRUE)
+StationMajor<-data.frame(subset(StationMajor, select = c("sta_seq","major")))
+
+anti_join(env,StationMajor)
+env.new<-subset(env, sta_seq!="14302")
+
+
+Majorenv<-merge(env.new,StationMajor, by="sta_seq")
+
+
 ##What are the summary stats for percent impervious cover for the sites? By major basin?
