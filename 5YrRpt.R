@@ -1,5 +1,6 @@
 library('RSQLite')
 setwd("C:/Users/kevin/Documents/Projects/GitHub/DEEP QA/5YrMonitoringRpt")
+env<-read.csv("data/site_env.csv",header=TRUE)
 db_path <- paste0(getwd(),'/data/')
 db <- dbConnect(SQLite(), dbname=paste(db_path,"monrpt.db",sep=''));
 
@@ -230,34 +231,23 @@ for (i in 1:length(uniquechem)){
 ---------------------------------------------  
 ##What are the summary statistics for each parameter in each major basin? (edit)
 
-  for (i in 1:length(uniquechem)) {
-    param1<-uniquechem[i]
-    our_summary <-
-      list("param1" =
-             list("min" = ~ min(.data$value),
-                  "max" = ~ max(.data$value),
-                  "mean (sd)" = ~ qwraps2::mean_sd(.data$value)),
-           "median" = ~ median(.data$value))
-    
-  }
-summary <- summary.data.frame(dplyr::group_by(mbasin, major), our_summary)
-summary
-
-
-
-mbasin <- subset(chem_basin, select = c("chemparameter","value","major"))
-
-split.mbasin <- split(mbasin,mbasin$major)
-
-for (i in seq_along(split.mbasin)){
-  split.mbasin[[i]]$dfname <- names(split.mbasin)[i]
-  require(data.table)
-  DT <- rbindlist(split.mbasin, fill = TRUE)
-  DT[,lapply(.SD, mean), by =dfname]
-}
-
-
   
+#aggregate values based on major basin & parameter
+mbasin.para<-aggregate(chem_basin$value , by = list(chem_basin$major , chem_basin$chemparameter )  , FUN = summary)  
+
+library(dplyr)
+
+#rename columns
+mbasin.para<- mbasin.para %>% 
+  dplyr::rename(
+    MajorBasin = Group.1,
+    Chemparameter = Group.2,
+    SummaryStats = x
+  )
+#sort columns by major basin
+mbasin.para<-data.frame(arrange(mbasin.para,MajorBasin))
+
+---------------------------------------------  
 ##what are the summary stats for drainage area for the sites? By major basin?
   
 ##What are the summary stats for percent impervious cover for the sites? By major basin?
