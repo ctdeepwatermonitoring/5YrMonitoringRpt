@@ -213,7 +213,7 @@ num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
 ##What are the summary statistics for each parameter? ##Only calculate summary statistics for river/stream samples and non-duplicates
 uniquechem<-unique(chem_basin$chemparameter)
 
-#Create a summary stats dataframe
+  #Create a summary stats dataframe
 summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
                           Mean=numeric(),Q3 =numeric(),
                           Max=numeric(),NAs=integer())
@@ -232,19 +232,19 @@ for (i in 1:length(uniquechem)){
 ##What are the summary statistics for each parameter in each major basin? (edit)
 
   
-#aggregate values based on major basin & parameter
+  #aggregate values based on major basin & parameter
 mbasin.para<-aggregate(chem_basin$value , by = list(chem_basin$major , chem_basin$chemparameter )  , FUN = summary)  
 
 library(dplyr)
 
-#rename columns
+  #rename columns
 mbasin.para<- mbasin.para %>% 
   dplyr::rename(
     MajorBasin = Group.1,
     Chemparameter = Group.2,
     SummaryStats = x
   )
-#sort columns by major basin
+  #sort columns by major basin
 mbasin.para<-data.frame(arrange(mbasin.para,MajorBasin))
 
 ---------------------------------------------  
@@ -255,17 +255,17 @@ library(dplyr)
 StationMajor<-distinct(chem_basin,sta_seq, .keep_all = TRUE)
 StationMajor<-data.frame(subset(StationMajor, select = c("sta_seq","major")))
 
-#ID mismatch
+  #ID mismatch
 anti_join(env,StationMajor)
 
 Majorenv<-merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq")
 
-#summary stats drainage area (miles)
+  #summary stats drainage area (miles)
 summary(Majorenv$SqMi)
 
 Majorenv.drainage<-subset(Majorenv,select = c("major","SqMi"))
 
-#summary stats drainage area (miles) by major basin
+  #summary stats drainage area (miles) by major basin
 Drainagearea<-as.data.frame(Majorenv.drainage %>% 
                               group_by(major) %>%
                               summarise_at(.vars = names(.)[2],.funs = c(mean="mean",
@@ -273,14 +273,33 @@ Drainagearea<-as.data.frame(Majorenv.drainage %>%
                                                                          max="max",
                                                                          min="min")))
 
+
+****
+#Create a summary stats dataframe
+summary_stats_major<-data.frame(majorbasin=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
+                                Mean=numeric(),Q3 =numeric(),
+                                Max=numeric(),NAs=integer())
+
+for (i in 1:length(mbasin.unique)){
+  major<-Majorenv1[Majorenv1$major==mbasin.unique[i]&Majorenv1$duplicate==0]
+  cntNA<-length(major[is.na(major)])
+  test<-(summary(major)[1:6])
+  test<-as.data.frame(as.matrix(test))
+  test<-data.frame(majorbasin=mbasin.unique[i],Min=test[1,],Q1=test[2,],Median=test[3,],
+                   Mean=test[4,],Q3=test[5,],Max=test[6,],NAs=cntNA)
+  summary_stats_major<-rbind(test,summary_stats_major)
+}  
+
+
+
 ##What are the summary stats for percent impervious cover for the sites? By major basin?
 
-#summary stats percent impervious cover
+  #summary stats percent impervious cover
 summary(Majorenv$IC_Avg)
 
 Majorenv.IC<-subset(Majorenv,select = c("major","IC_Avg"))
 
-#summary stats percent impervious cover by major basin
+  #summary stats percent impervious cover by major basin
 PercentIC<-as.data.frame(Majorenv.IC %>% 
                               group_by(major) %>%
                               summarise_at(.vars = names(.)[2],.funs = c(mean="mean",
