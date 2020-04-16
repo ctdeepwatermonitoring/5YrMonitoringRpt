@@ -42,19 +42,6 @@ chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
 --------------------------
 #vector of unique chemical parameters
 uniquechem<-unique(chem_basin$chemparameter)
-
-#extract dfs for individual chemparameter
-DT.parameters1 <-chem_basin[,c(1:13)]
-split.parameter1<-split(DT.parameters1,DT.parameters1$chemparameter)
-
-for (i in 1:length(uniquechem)) {
-  parami<-uniquechem[i]
-  
-  lapply(seq_along(split.parameter1), 
-         function(i,x) {assign(paste0(uniquechem[i]),x[[i]], envir=.GlobalEnv)},
-         x=split.parameter1)
-}
-
 ---------------------------
 ##what chemical parameters were collected?
   
@@ -94,125 +81,92 @@ Parameter_Count<-data.frame(ChemSamp)
 ----------------------------------------
 ##Do all of the samples have the same unit of measure for each given parameter?
 library(dplyr)
+  
   #subset table 
 uom_chemparameter<-chem_basin[,c("chemparameter","uom")]
 
-  #number of distinct values
-uom_match <- data.frame(uom_chemparameter %>%
-                          gather(key = "fields",value = "Value") %>%
-                          group_by(fields) %>%
-                          summarise(distinct_value_count = n_distinct(Value, na.rm = TRUE))
-)
-
   #extract unique rows from table
-unique_uom <- data.frame(uom_chemparameter %>% distinct(chemparameter,uom,.keep_all = TRUE))
+unique_uom <- 
+  data.frame(uom_chemparameter %>% distinct(chemparameter,uom,.keep_all = TRUE))
 
   #find common values (dplyr)
 inner_join(uom_chemparameter, unique_uom)
 
   #identify rows in uom_chemparameter that are not present in unique_uom (dplyr)*
-
 error_uom<-data.frame(setdiff(uom_chemparameter, unique_uom))
-
 ----------------------------------------
 ##How many river and stream samples were collected excluding duplicates?
-  
   #exclude duplicates
 nodup_chem<-distinct(chem_basin,.keep_all=TRUE)
-
-Num_of_sample<-length(nodup_chem$station_type)
-
-Num_riverstream<- data.frame(Num_of_sample)
+Num_of_sample<-data.frame(length(nodup_chem$station_type))
 ----------------------------------------          
 ##How many river and stream samples (excluding duplicates) were collected in each year? (edit)
-library(tidyverse)
-  #parse out dates column
-dates <- chem1[2]
 
   #create df for dates
-dates_total <- data.frame(dates, stringsAsFactors = FALSE)
+library(tidyverse)
+dates <- data.frame(chem_basin[2], stringsAsFactors = FALSE)
 
   #separate dates into "month", "day", "year"
-monthdayyear<-data.frame(separate(dates_total,"collect_date", c("month", "day", "year"), sep = "/"))
+monthdayyear<-data.frame(separate(dates,"collect_date", c("month", "day", "year"), sep = "/"))
 
-  #parse out year sample was taken
-sampleyear<-data.frame(monthdayyear[3])
-
-  #vector of unique years samples were taken
-uniqueyear<- unique(sampleyear$year)
-
-  #create df of unique year and num of samples taken*
-sampleyear.num<-data.frame(table(sampleyear))
+  #create freq. table for sample years
+sampleyearfreq<-as.data.frame(table(data.frame(monthdayyear[3])))
+  colnames(sampleyear)[1] <- "Year"
 ----------------------------------------
 ##How many sites were collected in more than one year? ##What sites were collected in more than one year and how many years were collected?
-
-  library(dplyr)
-  #extract station sequence and collection date
-sampleyear<-data.frame(chem_basin[1:2])
+require(tidyverse)
+require(dplyr)
+  
   #extract "year" from collection date
-sampleyear1<-data.frame(separate(sampleyear,"collect_date", c("month", "day", "year"), sep = "/"))
-  #subset df for station and year
-sample_year<-subset(sampleyear1, select = c("sta_seq","year"))
-  #remove duplicates 
-sample_year_distinct<-distinct(sample_year)
-  #create frequency table
-sampleyear.freq<-table(sample_year_distinct)
-print(sampleyear.freq)
-
-  #convert table to dataframe (matrix)
-sampleyear.df<-as.data.frame.matrix(sampleyear.freq)
-  #sta_seq as new column
-sampleyear.df<-cbind(sta_seq = row.names(sampleyear.freq), as.data.frame.matrix(sampleyear.freq))
+sampleyear<-
+    data.frame(separate((chem_basin[1:2]),"collect_date", c("month", "day", "year"), sep = "/"))
+  
+  #subset df for station and year, remove duplicates
+sample_year_distinct<-
+  distinct(subset(sampleyear, select = c("sta_seq","year")))
+  
+  #create frequency table - dataframe, sta_seq as a new column
+sampleyear.freq<-
+  cbind(sta_seq = row.names(sampleyear.freq), 
+        as.data.frame.matrix(table(sample_year_distinct)))
   
   #add col w/ stations visited in more than one year
-sampleyear.df$years.frequency<-rowSums(sampleyear.df[2:6]=="1")
-
-  #filter out sites collected in more than one year & num of years collected*
-more.than.one.sites<- sampleyear.df %>%
-                          filter(years.frequency > 1)
+sampleyear.freq$years.frequency<-rowSums(sampleyear.freq[2:6]=="1")
+  
+  #filter out sites collected in more than one year
+morethanone<- sampleyear.freq %>%
+  filter(years.frequency > 1)
   
   #number of sites sampled in more than one year*
-length(more.than.one.sites$sta_seq)
-
+length(morethanone$sta_seq)
 ------------------------------------------
 ##How many sites were collected in each major basin?
+  #subset chem_basin
+table.major.basin<-
+  (table(subset(chem_basin,select = c("sta_seq","major"))))
 
-    #subset chem_basin
-mbasn_basin<-subset(chem_basin,select = c("sta_seq","major"))
-    #create table 
-table.major.basin<-table(mbasn_basin)
-    #sta_seq as new column
-table.major.df<-cbind(sta_seq = row.names(table.major.basin), as.data.frame.matrix(table.major.basin))
-    #sum of individual columns excluding sta_seq column
-num.sites.per.mbasin<-colSums(table.major.basin[,-1])
+  #sta_seq as new column
+table.major.basin<-cbind(sta_seq = row.names(table.major.basin), 
+                         as.data.frame.matrix(table.major.basin))
 
-major_basin_sitescount<-data.frame(num.sites.per.mbasin)
+  #sum, exclude sta_seq
+sites.per.mbasin<-data.frame(colSums(table.major.basin[,-1]))
+  colnames(sites.per.mbasin)[1] <- "Site Frequency"
 -------------------------------------------  
-
 ## What percentage of subregional basins in the State have one or more samples?
+require(dplyr)  
+  #create table - df, cbind sbasn and row sum columns
+sample.sbasn <- table(subset(chem_basin, select = c("sbasn","sta_seq")))
+sample.sbasn %>%
+  cbind(sbasn = row.names(sample.sbasn), as.data.frame.matrix(sample.sbasn))
+  cbind(sample.sbasn, total = rowSums(sample.sbasn[-1]))
+  #count num of samples > 1
+sbasn.over1<-count(subset(sample.sbasn,select = c("sbasn", "total")), total > 1)
 
-library(dplyr)
-unique(chem_basin$sbasn)
-
-  #subset chem_basin 
-samples.sbasn <- subset(chem_basin, select = c("sbasn","sta_seq"))
-  #create frequency table
-samples.sbasn.table<-table(samples.sbasn)
-  #sbasn as column 1, convert to matrix df
-sbasn.df<-cbind(sbasn = row.names(samples.sbasn.table), as.data.frame.matrix(samples.sbasn.table))
-  #add sum of row as last column
-sbasn.total<-data.frame(cbind(sbasn.df, total = rowSums(sbasn.df[-1])))
-  #subset for sbasn and rowsum column
-sbasn.sample.frequency<-subset(sbasn.total,select = c("sbasn", "total"))
-  #count rows with more than one sample (sta_seq) 
-num.sbasn.over1<-count(sbasn.sample.frequency, total > 1)
-
-"percentage of subregional basins with more than one sample"<-print(100 * (num.sbasn.over1$n / length(unique(sbasn.df$sbasn))))  
-  
+"percentage of subregional basins with more than one sample"<-
+    print(100 * (sbasn.over1$n / length(unique(sample.sbasn$sbasn))))    
 ---------------------------------------------
 ##What are the summary statistics for each parameter? ##Only calculate summary statistics for river/stream samples and non-duplicates
-uniquechem<-unique(chem_basin$chemparameter)
-
   #Create a summary stats dataframe
 summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
                           Mean=numeric(),Q3 =numeric(),
@@ -227,15 +181,12 @@ for (i in 1:length(uniquechem)){
                    Mean=test[4,],Q3=test[5,],Max=test[6,],NAs=cntNA)
   summary_Stats<-rbind(test,summary_Stats)
 }  
-
 ---------------------------------------------  
 ##What are the summary statistics for each parameter in each major basin? (edit)
-
-  
   #aggregate values based on major basin & parameter
 mbasin.para<-aggregate(chem_basin$value , by = list(chem_basin$major , chem_basin$chemparameter )  , FUN = summary)  
 
-library(dplyr)
+require(dplyr)
 
   #rename columns
 mbasin.para<- mbasin.para %>% 
@@ -246,63 +197,51 @@ mbasin.para<- mbasin.para %>%
   )
   #sort columns by major basin
 mbasin.para<-data.frame(arrange(mbasin.para,MajorBasin))
-
 ---------------------------------------------  
 ##what are the summary stats for drainage area for the sites? By major basin?
   
-library(dplyr)
+require(dplyr)
 
-StationMajor<-distinct(chem_basin,sta_seq, .keep_all = TRUE)
-StationMajor<-data.frame(subset(StationMajor, select = c("sta_seq","major")))
+StationMajor<-
+  data.frame(subset(distinct(chem_basin,sta_seq, .keep_all = TRUE), 
+                    select = c("sta_seq","major")))
 
-  #ID mismatch
+#ID mismatch*
 anti_join(env,StationMajor)
 
-Majorenv<-merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq")
+Majorenv<-
+  subset(merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq"), 
+         select = c("major","SqMi"))
 
-  #summary stats drainage area (miles)
+#summary stats drainage area (miles)
 summary(Majorenv$SqMi)
 
-Majorenv.drainage<-subset(Majorenv,select = c("major","SqMi"))
-
-  #summary stats drainage area (miles) by major basin
-Drainagearea<-as.data.frame(Majorenv.drainage %>% 
+#summary stats drainage area (miles) by major basin
+Drainagearea<-as.data.frame(Majorenv %>% 
                               group_by(major) %>%
-                              summarise_at(.vars = names(.)[2],.funs = c(mean="mean",
-                                                                         median="median",
-                                                                         max="max",
-                                                                         min="min")))
-
-
-****
-#Create a summary stats dataframe
-summary_stats_major<-data.frame(majorbasin=character(),Min=numeric(),Q1 =numeric(),Median=numeric(),
-                                Mean=numeric(),Q3 =numeric(),
-                                Max=numeric(),NAs=integer())
-
-for (i in 1:length(mbasin.unique)){
-  major<-Majorenv1[Majorenv1$major==mbasin.unique[i]&Majorenv1$duplicate==0]
-  cntNA<-length(major[is.na(major)])
-  test<-(summary(major)[1:6])
-  test<-as.data.frame(as.matrix(test))
-  test<-data.frame(majorbasin=mbasin.unique[i],Min=test[1,],Q1=test[2,],Median=test[3,],
-                   Mean=test[4,],Q3=test[5,],Max=test[6,],NAs=cntNA)
-  summary_stats_major<-rbind(test,summary_stats_major)
-}  
-
-
-
+                              summarise_at(.vars = names(.)[2],.funs = c(min = "min", 
+                                                                         q1 = ~quantile(.,probs = 0.25), 
+                                                                         median = "median", 
+                                                                         q2 = ~quantile(.,probs = 0.75), 
+                                                                         max = "max",
+                                                                         mean = "mean", 
+                                                                         sd = "sd")))
+----------------------------------------------
 ##What are the summary stats for percent impervious cover for the sites? By major basin?
 
   #summary stats percent impervious cover
 summary(Majorenv$IC_Avg)
 
-Majorenv.IC<-subset(Majorenv,select = c("major","IC_Avg"))
+Majorenv.IC<-subset(merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq"), 
+                    select = c("major","IC_Avg"))
 
   #summary stats percent impervious cover by major basin
 PercentIC<-as.data.frame(Majorenv.IC %>% 
                               group_by(major) %>%
-                              summarise_at(.vars = names(.)[2],.funs = c(mean="mean",
-                                                                         median="median",
-                                                                         max="max",
-                                                                         min="min")))
+                              summarise_at(.vars = names(.)[2],.funs = c(min = "min", 
+                                                                         q1 = ~quantile(.,probs = 0.25), 
+                                                                         median = "median", 
+                                                                         q2 = ~quantile(.,probs = 0.75), 
+                                                                         max = "max",
+                                                                         mean = "mean", 
+                                                                         sd = "sd")))
