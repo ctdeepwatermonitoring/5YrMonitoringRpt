@@ -153,18 +153,17 @@ table.major.basin<-cbind(sta_seq = row.names(table.major.basin),
 sites.per.mbasin<-data.frame(colSums(table.major.basin[,-1]))
   colnames(sites.per.mbasin)[1] <- "Site Frequency"
 -------------------------------------------  
-## What percentage of subregional basins in the State have one or more samples?
-require(dplyr)  
-  #create table - df, cbind sbasn and row sum columns
-sample.sbasn <- table(subset(chem_basin, select = c("sbasn","sta_seq")))
-sample.sbasn %>%
-  cbind(sbasn = row.names(sample.sbasn), as.data.frame.matrix(sample.sbasn))
-  cbind(sample.sbasn, total = rowSums(sample.sbasn[-1]))
-  #count num of samples > 1
-sbasn.over1<-count(subset(sample.sbasn,select = c("sbasn", "total")), total > 1)
-
-"percentage of subregional basins with more than one sample"<-
-    print(100 * (sbasn.over1$n / length(unique(sample.sbasn$sbasn))))    
+## What percentage of subregional basins in the State have one or more samples? (edit)
+    require(dplyr)
+  #create frequency table
+sbasn<-table(subset(chem_basin, select = c("sbasn", "sta_seq")))
+  #sbasn as column 1, convert to matrix df
+sbasn.total<-cbind(sbasn = row.names(sbasn), as.data.frame.matrix(sbasn))
+  #add sum of row as last column
+sbasn.total<-data.frame(cbind(sbasn.total, total = rowSums(sbasn.total[-1])))
+sbasn.sample.frequency<-count(sbasn.total, total > 1)
+  
+"percentage of subregional basins with more than one sample"<-print(100 * (sbasn.sample.frequency$n / length(unique(sbasn.total$sbasn))))     
 ---------------------------------------------
 ##What are the summary statistics for each parameter? ##Only calculate summary statistics for river/stream samples and non-duplicates
   #Create a summary stats dataframe
