@@ -244,3 +244,36 @@ PercentIC<-as.data.frame(Majorenv.IC %>%
                                                                          max = "max",
                                                                          mean = "mean", 
                                                                          sd = "sd")))
+-----------------------------------------------
+#Table Major Basin - Chem Parameter
+
+mbasin.para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
+
+mbasin.para1<-as.data.frame(mbasin.para1 %>% 
+                              group_by(major,chemparameter) %>%
+                              summarise_at(.vars = names(.)[3],.funs = c(min = "min", 
+                                                                         q1 = ~quantile(.,probs = 0.25, na.rm = T), 
+                                                                         median = "median", 
+                                                                         q2 = ~quantile(.,probs = 0.75, na.rm = T), 
+                                                                         max = "max",
+                                                                         mean = "mean", 
+                                                                         sd = "sd")))
+  
+  #Chloride summary stat by Major Basin
+chloride <- mbasin.para1[mbasin.para1$chemparameter == "Chloride", ]  
+
+chloride<- t(chloride)
+colnames(chloride) <- chloride[1, ]
+chloride <- chloride[-1, ]  
+  
+  #loop parameter summary stats by Major Basin
+chemunique
+
+
+  
+  
+  
+  
+
+
+
