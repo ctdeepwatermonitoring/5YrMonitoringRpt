@@ -258,19 +258,41 @@ mbasin.para1<-as.data.frame(mbasin.para1 %>%
                                                                          max = "max",
                                                                          mean = "mean", 
                                                                          sd = "sd")))
+
+  #Statewide summary stats
+omitna.chembasin <- na.omit(chem_basin)
+Statewide <- as.data.frame(omitna.chembasin %>%
+                             group_by(chemparameter) %>%
+                             summarise_at(.vars = names(.)[4],.funs = c(min = "min", 
+                                                                        q1 = ~quantile(.,probs = 0.25, na.rm = T), 
+                                                                        median = "median", 
+                                                                        q2 = ~quantile(.,probs = 0.75, na.rm = T), 
+                                                                        max = "max",
+                                                                        mean = "mean", 
+                                                                        sd = "sd")))
+Statewide<- t(Statewide)
+colnames(Statewide) <- Statewide[1,]
+Statewide <- Statewide[-1,]
+
   
   #Chloride summary stat by Major Basin
 chloride <- mbasin.para1[mbasin.para1$chemparameter == "Chloride", ]  
 
 chloride<- t(chloride)
 colnames(chloride) <- chloride[1, ]
-chloride <- chloride[-1, ]  
-  
-  #loop parameter summary stats by Major Basin
-chemunique
+chloride <- chloride[-1, ]
+chloride <- chloride[-1, ]
 
+chloride.state <- subset(Statewide, select = "Chloride")
+chloride.state <- as.numeric(as.character(chloride.state))
 
-  
+chloride <-data.frame(cbind(chloride, chloride.state))
+
+names(chloride)[names(chloride) == 'chloride.state'] <- 'Statewide'
+
+require(dplyr)
+chloride <- chloride %>% 
+  mutate_if(is.numeric, round, digits = 3)  
   
   
   
