@@ -247,29 +247,36 @@ PercentIC<-as.data.frame(Majorenv.IC %>%
 -----------------------------------------------
 #Table Major Basin - Chem Parameter
 
+  #standard error function
+SE <- function(x) sd(x)/sqrt(length(x))
+
 mbasin.para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
 
 mbasin.para1<-as.data.frame(mbasin.para1 %>% 
                               group_by(major,chemparameter) %>%
-                              summarise_at(.vars = names(.)[3],.funs = c(min = "min", 
+                              summarise_at(.vars = names(.)[3],.funs = c(count = "length",
+                                                                         min = "min",
                                                                          q1 = ~quantile(.,probs = 0.25, na.rm = T), 
                                                                          median = "median", 
                                                                          q2 = ~quantile(.,probs = 0.75, na.rm = T), 
                                                                          max = "max",
                                                                          mean = "mean", 
-                                                                         sd = "sd")))
+                                                                         sd = "sd",
+                                                                         SE = "SE")))
 
-  #Statewide summary stats
+#Statewide summary stats
 omitna.chembasin <- na.omit(chem_basin)
 Statewide <- as.data.frame(omitna.chembasin %>%
                              group_by(chemparameter) %>%
-                             summarise_at(.vars = names(.)[4],.funs = c(min = "min", 
+                             summarise_at(.vars = names(.)[4],.funs = c(count = "length",
+                                                                        min = "min",
                                                                         q1 = ~quantile(.,probs = 0.25, na.rm = T), 
                                                                         median = "median", 
                                                                         q2 = ~quantile(.,probs = 0.75, na.rm = T), 
                                                                         max = "max",
                                                                         mean = "mean", 
-                                                                        sd = "sd")))
+                                                                        sd = "sd",
+                                                                        SE = "SE")))
 Statewide<- t(Statewide)
 colnames(Statewide) <- Statewide[1,]
 Statewide <- Statewide[-1,]
@@ -290,9 +297,7 @@ chloride <-data.frame(cbind(chloride, chloride.state))
 
 names(chloride)[names(chloride) == 'chloride.state'] <- 'Statewide'
 
-require(dplyr)
-chloride <- chloride %>% 
-  mutate_if(is.numeric, round, digits = 3)  
+
   
   
   
