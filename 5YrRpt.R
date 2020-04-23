@@ -298,9 +298,50 @@ chloride <-data.frame(cbind(chloride, chloride.state))
 names(chloride)[names(chloride) == 'chloride.state'] <- 'Statewide'
 
 
-  
-  
-  
+
+  #boxplot Chloride
+library(ggplot2)
+
+chloride2 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
+chloride2 <- data.frame(subset(chloride2, chloride2$chemparameter == "Chloride"))
+
+
+chloride2['major'] = 'Statewide'
+
+
+chloride1 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
+chloride1 <- data.frame(subset(chloride1, chloride1$chemparameter == "Chloride"))
+chloride1 <- arrange(chloride1, chloride1$major)
+
+chloride1 <- data.frame(rbind(chloride1, chloride2))
+
+
+chloride1$major <- as.factor(chloride1$major)
+head(chloride1)
+
+
+chloride1$major <- factor(chloride1$major , levels=c("Connecticut",
+                                                     "Thames",
+                                                     "Southwest Coast",
+                                                     "Southeast Coast",
+                                                     "South Central Coast",
+                                                     "Pawcatuck",
+                                                     "Hudson",
+                                                     "Housatonic",
+                                                     "Statewide"))
+
+
+
+p <- ggplot(chloride1, aes(x= major, y= value, fill = major)) + 
+  geom_boxplot(outlier.colour="black", outlier.shape=8,
+               outlier.size=2)+
+  labs(title = "Chloride",x="Major Basin", y="ppm")+
+  scale_fill_brewer(palette="RdBu")+
+  theme_bw()+ 
+  stat_summary(fun = mean, geom="point", shape=23, size=4)+
+  coord_flip()
+
+p
 
 
 
