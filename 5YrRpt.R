@@ -330,16 +330,21 @@ chloride1$major <- factor(chloride1$major , levels=c("Connecticut",
                                                      "Housatonic",
                                                      "Statewide"))
 
-
+require(scales)
 
 p <- ggplot(chloride1, aes(x= major, y= value, fill = major)) + 
   geom_boxplot(outlier.colour="black", outlier.shape=8,
                outlier.size=2)+
   labs(title = "Chloride",x="Major Basin", y="ppm")+
   scale_fill_brewer(palette="RdBu")+
-  theme_bw()+ 
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5))+
   stat_summary(fun = mean, geom="point", shape=23, size=4)+
-  coord_flip()
+  theme(axis.text.x = element_text(angle=90, hjust = 1))+
+  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                labels = trans_format("log10", math_format(10^.x)))+
+  annotation_logticks(sides = "l")+
+  theme(legend.position="none")
 
 p
 
