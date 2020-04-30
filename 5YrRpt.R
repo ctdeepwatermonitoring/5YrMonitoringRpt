@@ -240,78 +240,52 @@ Drainagearea<-as.data.frame(Majorenv %>%
   #summary stats percent impervious cover
 summary(Majorenv$IC_Avg)
 
-Majorenv.IC<-subset(merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq"), 
+Majorenv_IC<-subset(merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq"), 
                     select = c("major","IC_Avg"))
 
   #summary stats percent impervious cover by major basin
-PercentIC<-as.data.frame(Majorenv.IC %>% 
-                              group_by(major) %>%
-                              summarise_at(.vars = names(.)[2],.funs = c(min = "min", 
-                                                                         q1 = ~quantile(.,probs = 0.25), 
-                                                                         median = "median", 
-                                                                         q2 = ~quantile(.,probs = 0.75), 
-                                                                         max = "max",
-                                                                         mean = "mean", 
-                                                                         sd = "sd")))
+PercentIC<-as.data.frame(Majorenv_IC %>% 
+                           group_by(major) %>%
+                           summarise_at(.vars = names(.)[2],.funs = summStat))
 
-
-#Table Major Basin - Chem Parameter
+##Table Major Basin - Chem Parameter
 
   #standard error function
 SE <- function(x) sd(x)/sqrt(length(x))
 
-mbasin.para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
+mbasin_para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
 
-mbasin.para1<-as.data.frame(mbasin.para1 %>% 
+mbasin_para1<-as.data.frame(mbasin_para1 %>% 
                               group_by(major,chemparameter) %>%
-                              summarise_at(.vars = names(.)[3],.funs = c(count = "length",
-                                                                         min = "min",
-                                                                         q1 = ~quantile(.,probs = 0.25, na.rm = TRUE), 
-                                                                         median = "median", 
-                                                                         q2 = ~quantile(.,probs = 0.75, na.rm = TRUE), 
-                                                                         max = "max",
-                                                                         mean = "mean", 
-                                                                         sd = "sd",
-                                                                         SE = "SE")))
+                              summarise_at(.vars = names(.)[3],.funs = boxStat))
 
-#Statewide summary stats
-omitna.chembasin <- na.omit(chem_basin)
-Statewide <- as.data.frame(omitna.chembasin %>%
+  #Statewide summary stats
+omitna_chembasin <- na.omit(chem_basin)
+Statewide <- as.data.frame(omitna_chembasin %>%
                              group_by(chemparameter) %>%
-                             summarise_at(.vars = names(.)[4],.funs = c(count = "length",
-                                                                        min = "min",
-                                                                        q1 = ~quantile(.,probs = 0.25, na.rm = TRUE), 
-                                                                        median = "median", 
-                                                                        q2 = ~quantile(.,probs = 0.75, na.rm = TRUE), 
-                                                                        max = "max",
-                                                                        mean = "mean", 
-                                                                        sd = "sd",
-                                                                        SE = "SE")))
+                             summarise_at(.vars = names(.)[4],.funs = boxStat))
 Statewide<- t(Statewide)
 colnames(Statewide) <- Statewide[1,]
 Statewide <- Statewide[-1,]
 
   
-  #Chloride summary stat by Major Basin
-chloride <- mbasin.para1[mbasin.para1$chemparameter == "Chloride", ]  
+  #Chloride summary stat by Major Basin (fix sig figs)
+chloride <- mbasin_para1[mbasin_para1$chemparameter == "Chloride", ]  
 
 chloride<- t(chloride)
 colnames(chloride) <- chloride[1, ]
 chloride <- chloride[-1, ]
 chloride <- chloride[-1, ]
 
-chloride.state <- subset(Statewide, select = "Chloride")
-chloride.state <- as.numeric(as.character(chloride.state))
+chloride_state <- subset(Statewide, select = "Chloride")
+chloride_state <- as.numeric(as.character(chloride_state))
 
-chloride <-data.frame(cbind(chloride, chloride.state))
+chloride <-data.frame(cbind(chloride, chloride_state))
 
-names(chloride)[names(chloride) == 'chloride.state'] <- 'Statewide'
+names(chloride)[names(chloride) == 'chloride_state'] <- 'Statewide'
 
 
   #boxplot Chloride
-
-library(ggplot2)
-library(scales)
 
 chloride2 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
 chloride2 <- data.frame(subset(chloride2, chloride2$chemparameter == "Chloride"))
