@@ -250,6 +250,17 @@ PercentIC<-as.data.frame(Majorenv_IC %>%
 
 ##Table Major Basin - Chem Parameter
 
+  ##summary stats graphics
+boxStat = c(count = "length",
+            min = "min",
+            q1 = ~quantile(.,probs = 0.25, na.rm = TRUE), 
+            median = "median", 
+            q2 = ~quantile(.,probs = 0.75, na.rm = TRUE), 
+            max = "max",
+            mean = "mean", 
+            sd = "sd",
+            SE = "SE")
+
   #standard error function
 SE <- function(x) sd(x)/sqrt(length(x))
 
