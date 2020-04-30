@@ -48,22 +48,18 @@ chem_basin<-merge(chem1,sitesbasin,by="sta_seq")
 
 
 #vector of unique chemical parameters
-uniquechem<-unique(chem_basin$chemparameter)
+uniqueChem<-unique(chem_basin$chemparameter)
 
 
 ##what chemical parameters were collected?
   
-uniquechem<-unique(chem_basin$chemparameter)
+uniqueChem<-unique(chem_basin$chemparameter)
 ChemParam<-data.frame(uniquechem)
-
-
 
 ##How many river and stream sites were samples from 2011 through 2015? (edit)
   
 NumberSites<-length(chem_basin$collect_date)
 Number_of_sites<-data.frame(NumberSites)
-
-
 
 ##How many samples were collected for each chemical parameter at river/stream sites? 
   
@@ -89,7 +85,6 @@ for (i in 1:length(chemunique)){
 Parameter_Count<-data.frame(ChemSamp)
 
 
-
 ##Do all of the samples have the same unit of measure for each given parameter?
   
   #subset table 
@@ -113,67 +108,64 @@ Num_of_sample<-data.frame(length(nodup_chem$station_type))
 
 ##How many river and stream samples (excluding duplicates) were collected in each year? (edit)
 
-  #create df for dates
+#create df for dates
 
 dates <- data.frame(chem_basin[2], stringsAsFactors = FALSE)
 
-  #separate dates into "month", "day", "year"
-monthdayyear<-data.frame(separate(dates,"collect_date", c("month", "day", "year"), sep = "/"))
+#separate dates into "month", "day", "year"
+month_day_year<-data.frame(separate(dates,"collect_date", c("month", "day", "year"), sep = "/"))
 
-  #create freq. table for sample years
-sampleyearfreq<-as.data.frame(table(data.frame(monthdayyear[3])))
-  colnames(sampleyear)[1] <- "Year"
-
+#create freq. table for sample years
+sample_year_freq<-as.data.frame(table(data.frame(month_day_year[3])))
+  names(sample_year_freq)[names(sample_year_freq) == 'Var1'] <- 'Year'
   
 ##How many sites were collected in more than one year? ##What sites were collected in more than one year and how many years were collected?
   
   #extract "year" from collection date
-sampleyear<-
-    data.frame(separate((chem_basin[1:2]),"collect_date", c("month", "day", "year"), sep = "/"))
+sampleYear<-
+  data.frame(separate((chem_basin[1:2]),"collect_date", c("month", "day", "year"), sep = "/"))
   
   #subset df for station and year, remove duplicates
 sample_year_distinct<-
-  distinct(subset(sampleyear, select = c("sta_seq","year")))
+  distinct(subset(sampleYear, select = c("sta_seq","year")))
   
   #create frequency table - dataframe, sta_seq as a new column
-sampleyear.freq<-
-  cbind(sta_seq = row.names(sampleyear.freq), 
-        as.data.frame.matrix(table(sample_year_distinct)))
+sample_year_freq<-
+  cbind(sta_seq = row.names(sample_year_freq), 
+          as.data.frame.matrix(table(sample_year_distinct)))
   
   #add col w/ stations visited in more than one year
-sampleyear.freq$years.frequency<-rowSums(sampleyear.freq[2:6]=="1")
+sample_year_freq$years.frequency<-rowSums(sample_year_freq[2:6]=="1")
   
   #filter out sites collected in more than one year
-morethanone<- sampleyear.freq %>%
+more_than_one<- sample_year_freq %>%
   filter(years.frequency > 1)
   
   #number of sites sampled in more than one year*
-length(morethanone$sta_seq)
-
+length(more_than_one$sta_seq)
 
 ##How many sites were collected in each major basin?
   #subset chem_basin
-table.major.basin<-
+table_major_basin<-
   (table(subset(chem_basin,select = c("sta_seq","major"))))
 
   #sta_seq as new column
-table.major.basin<-cbind(sta_seq = row.names(table.major.basin), 
-                         as.data.frame.matrix(table.major.basin))
+table_major_basin<-cbind(sta_seq = row.names(table_major_basin), 
+                         as.data.frame.matrix(table_major_basin))
 
   #sum, exclude sta_seq
-sites.per.mbasin<-data.frame(colSums(table.major.basin[,-1]))
-  colnames(sites.per.mbasin)[1] <- "Site Frequency"
-
+sites_per_mbasin<-data.frame(colSums(table_major_basin[,-1]))
+colnames(sites_per_mbasin)[1] <- "Site Frequency"
    
 ## What percentage of subregional basins in the State have one or more samples? (edit)
 
   #create frequency table
 sbasn<-table(subset(chem_basin, select = c("sbasn", "sta_seq")))
   #sbasn as column 1, convert to matrix df
-sbasn.total<-cbind(sbasn = row.names(sbasn), as.data.frame.matrix(sbasn))
+sbasn_total<-cbind(sbasn = row.names(sbasn), as.data.frame.matrix(sbasn))
   #add sum of row as last column
-sbasn.total<-data.frame(cbind(sbasn.total, total = rowSums(sbasn.total[-1])))
-sbasn.sample.frequency<-count(sbasn.total, total > 1)
+sbasn_total<-data.frame(cbind(sbasn_total, total = rowSums(sbasn_total[-1])))
+  sbasn_sample_frequency<-count(sbasn_total, total > 1)
   
 "percentage of subregional basins with more than one sample"<-print(100 * (sbasn.sample.frequency$n / length(unique(sbasn.total$sbasn))))     
 
@@ -184,31 +176,31 @@ summary_Stats<-data.frame(param=character(),Min=numeric(),Q1 =numeric(),Median=n
                           Mean=numeric(),Q3 =numeric(),
                           Max=numeric(),NAs=integer())
 
-for (i in 1:length(uniquechem)){
+for (i in 1:length(uniqueChem)){
   param<-chem_basin[chem_basin$chemparameter==uniquechem[i]&chem_basin$duplicate==0,4]
   cntNA<-length(param[is.na(param)])
   test<-(summary(param)[1:6])
   test<-as.data.frame(as.matrix(test))
-  test<-data.frame(param=uniquechem[i],Min=test[1,],Q1=test[2,],Median=test[3,],
+  test<-data.frame(param=uniqueChem[i],Min=test[1,],Q1=test[2,],Median=test[3,],
                    Mean=test[4,],Q3=test[5,],Max=test[6,],NAs=cntNA)
   summary_Stats<-rbind(test,summary_Stats)
 }  
 
 
-##What are the summary statistics for each parameter in each major basin? (edit)
+##What are the summary statistics for each parameter in each major basin? 
   #aggregate values based on major basin & parameter
-mbasin.para<-aggregate(chem_basin$value , by = list(chem_basin$major , chem_basin$chemparameter )  , FUN = summary)  
+mbasin_para<-aggregate(chem_basin$value , by = list(chem_basin$major , chem_basin$chemparameter )  , FUN = summary)  
 
 
-  #rename columns
-mbasin.para<- mbasin.para %>% 
+#rename columns
+mbasin_para<- mbasin_para %>% 
   dplyr::rename(
     MajorBasin = Group.1,
     Chemparameter = Group.2,
     SummaryStats = x
   )
-  #sort columns by major basin
-mbasin.para<-data.frame(arrange(mbasin.para,MajorBasin))
+#sort columns by major basin
+mbasin_para<-data.frame(arrange(mbasin_para,MajorBasin))
 
 
 ##what are the summary stats for drainage area for the sites? By major basin?
