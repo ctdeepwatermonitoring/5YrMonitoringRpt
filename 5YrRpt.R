@@ -203,32 +203,36 @@ mbasin_para<- mbasin_para %>%
 mbasin_para<-data.frame(arrange(mbasin_para,MajorBasin))
 
 
+##summary stats 
+summStat =  c(min = "min", 
+              q1 = ~quantile(.,probs = 0.25), 
+              median = "median", 
+              q2 = ~quantile(.,probs = 0.75), 
+              max = "max",
+              mean = "mean", 
+              sd = "sd")
+
+
 ##what are the summary stats for drainage area for the sites? By major basin?
   
 StationMajor<-
   data.frame(subset(distinct(chem_basin,sta_seq, .keep_all = TRUE), 
                     select = c("sta_seq","major")))
 
-#ID mismatch*
+  #ID mismatch*
 anti_join(env,StationMajor)
 
 Majorenv<-
   subset(merge(StationMajor[StationMajor$sta_seq!=14302,],env,by="sta_seq"), 
          select = c("major","SqMi"))
 
-#summary stats drainage area (miles)
+  #summary stats drainage area (miles)
 summary(Majorenv$SqMi)
 
-#summary stats drainage area (miles) by major basin
+  #summary stats drainage area (miles) by major basin
 Drainagearea<-as.data.frame(Majorenv %>% 
                               group_by(major) %>%
-                              summarise_at(.vars = names(.)[2],.funs = c(min = "min", 
-                                                                         q1 = ~quantile(.,probs = 0.25), 
-                                                                         median = "median", 
-                                                                         q2 = ~quantile(.,probs = 0.75), 
-                                                                         max = "max",
-                                                                         mean = "mean", 
-                                                                         sd = "sd")))
+                              summarise_at(.vars = names(.)[2],.funs = summStat))
 
 
 ##What are the summary stats for percent impervious cover for the sites? By major basin?
