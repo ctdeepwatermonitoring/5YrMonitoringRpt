@@ -250,7 +250,7 @@ PercentIC<-as.data.frame(Majorenv_IC %>%
 
 ##Table Major Basin - Chem Parameter
 
-  ##summary stats graphics
+  #summary stats graphics
 boxStat = c(count = "length",
             min = "min",
             q1 = ~quantile(.,probs = 0.25, na.rm = TRUE), 
@@ -264,8 +264,19 @@ boxStat = c(count = "length",
   #standard error function
 SE <- function(x) sd(x)/sqrt(length(x))
 
-mbasin_para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
+  #Major Basin order
+MajorLevel = c("Connecticut",
+               "Thames",
+               "Southwest Coast",
+               "Southeast Coast",
+               "South Central Coast",
+               "Pawcatuck",
+               "Hudson",
+               "Housatonic",
+               "Statewide")
 
+mbasin_para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
+mbasin_para1$chemparameter <- sub(" ", ".", mbasin_para1$chemparameter)
 mbasin_para1<-as.data.frame(mbasin_para1 %>% 
                               group_by(major,chemparameter) %>%
                               summarise_at(.vars = names(.)[3],.funs = boxStat))
@@ -277,12 +288,11 @@ Statewide <- as.data.frame(omitna_chembasin %>%
                              summarise_at(.vars = names(.)[4],.funs = boxStat))
 Statewide<- t(Statewide)
 colnames(Statewide) <- Statewide[1,]
-Statewide <- Statewide[-1,]
+Statewide <- (Statewide[-1,])
 
   
-  #Chloride summary stat by Major Basin (fix sig figs)
+##Chloride summary stat by Major Basin (fix sig figs)
 chloride <- mbasin_para1[mbasin_para1$chemparameter == "Chloride", ]  
-
 chloride<- t(chloride)
 colnames(chloride) <- chloride[1, ]
 chloride <- chloride[-1, ]
@@ -294,7 +304,6 @@ chloride_state <- as.numeric(as.character(chloride_state))
 chloride <-data.frame(cbind(chloride, chloride_state))
 
 names(chloride)[names(chloride) == 'chloride_state'] <- 'Statewide'
-
 
   #boxplot Chloride
 
@@ -316,15 +325,7 @@ chloride1$major <- as.factor(chloride1$major)
 head(chloride1)
 
 
-chloride1$major <- factor(chloride1$major , levels=c("Connecticut",
-                                                     "Thames",
-                                                     "Southwest Coast",
-                                                     "Southeast Coast",
-                                                     "South Central Coast",
-                                                     "Pawcatuck",
-                                                     "Hudson",
-                                                     "Housatonic",
-                                                     "Statewide"))
+chloride1$major <- factor(chloride1$major , levels = MajorLevel)
 
 require(scales)
 
@@ -346,3 +347,60 @@ p
 
 
 
+##Total Phosphorous Graphics (fix) 
+
+#Total Phosphorous summary stat by Major Basin (fix sig figs)
+TotalPhosphorous <- mbasin_para1[mbasin_para1$chemparameter == "Total.Phosphorous",]  
+
+TotalPhosphorous<- t(TotalPhosphorous)
+colnames(TotalPhosphorous) <- TotalPhosphorous[1, ]
+TotalPhosphorous <- TotalPhosphorous[-1, ]
+TotalPhosphorous <- TotalPhosphorous[-1, ]
+
+Phosphorous_state <- subset(Statewide, select = "Total Phosphorous")
+Phosphorous_state <- as.numeric(as.character(Phosphorous_state))
+
+TotalPhosphorous <-data.frame(cbind(TotalPhosphorous, Phosphorous_state))
+
+names(TotalPhosphorous)[names(TotalPhosphorous) == 'Phosphorous_state'] <- 'Statewide'
+
+
+#boxplot Total Phosphorous
+
+TotalPhosphorous1 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
+TotalPhosphorous1 <- data.frame(subset(TotalPhosphorous1, TotalPhosphorous1$chemparameter == "Total Phosphorous"))
+
+
+TotalPhosphorous1['major'] = 'Statewide'
+
+
+TotalPhosphorous2 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
+TotalPhosphorous2 <- data.frame(subset(TotalPhosphorous2, TotalPhosphorous2$chemparameter == "Total Phosphorous"))
+TotalPhosphorous2 <- arrange(TotalPhosphorous2, TotalPhosphorous2$major)
+
+TotalPhosphorous2 <- data.frame(rbind(TotalPhosphorous2, TotalPhosphorous1))
+
+
+TotalPhosphorous2$major <- as.factor(TotalPhosphorous2$major)
+head(TotalPhosphorous2)
+
+
+TotalPhosphorous2$major <- factor(TotalPhosphorous2$major , levels = MajorLevel)
+
+require(scales)
+
+Phosphorous_box <- ggplot(TotalPhosphorous2, aes(x= major, y= value, fill = major)) + 
+  geom_boxplot(outlier.colour="black", outlier.shape=8,
+               outlier.size=2)+
+  labs(title = "Total Phosphorous",x="Major Basin", y="ppm")+
+  scale_fill_brewer(palette="RdBu")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  stat_summary(fun = mean, geom="point", shape=23, size=3)+
+  theme(axis.text.x = element_text(angle=90, hjust = 1))+
+  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                labels = trans_format("log10", math_format(10^.x)))+
+  annotation_logticks(sides = "l")+
+  theme(legend.position="none")
+
+Phosphorous_box
