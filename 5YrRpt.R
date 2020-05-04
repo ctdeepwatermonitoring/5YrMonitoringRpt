@@ -276,10 +276,13 @@ MajorLevel = c("Connecticut",
                "Statewide")
 
 mbasin_para1 <- na.omit(subset(chem_basin, select = c("major","chemparameter","value")))
-mbasin_para1$chemparameter <- sub(" ", ".", mbasin_para1$chemparameter)
+mbasin_para1$chemparameter <- gsub(" ", ".", mbasin_para1$chemparameter)
 mbasin_para1<-as.data.frame(mbasin_para1 %>% 
                               group_by(major,chemparameter) %>%
                               summarise_at(.vars = names(.)[3],.funs = boxStat))
+
+mbasin_para1 <- mbasin_para1 %>% 
+  mutate_if(is.numeric, round, digits = 2)
 
   #Statewide summary stats
 omitna_chembasin <- na.omit(chem_basin)
@@ -291,7 +294,7 @@ colnames(Statewide) <- Statewide[1,]
 Statewide <- (Statewide[-1,])
 
   
-##Chloride summary stat by Major Basin (fix sig figs)
+##Chloride Graphics
 chloride <- mbasin_para1[mbasin_para1$chemparameter == "Chloride", ]  
 chloride<- t(chloride)
 colnames(chloride) <- chloride[1, ]
@@ -317,19 +320,15 @@ chloride2['major'] = 'Statewide'
 chloride1 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
 chloride1 <- data.frame(subset(chloride1, chloride1$chemparameter == "Chloride"))
 chloride1 <- arrange(chloride1, chloride1$major)
-
 chloride1 <- data.frame(rbind(chloride1, chloride2))
 
 
 chloride1$major <- as.factor(chloride1$major)
 head(chloride1)
-
-
 chloride1$major <- factor(chloride1$major , levels = MajorLevel)
 
-require(scales)
 
-p <- ggplot(chloride1, aes(x= major, y= value, fill = major)) + 
+chlorideBoxplot <- ggplot(chloride1, aes(x= major, y= value, fill = major)) + 
   geom_boxplot(outlier.colour="black", outlier.shape=8,
                outlier.size=2)+
   labs(title = "Chloride",x="Major Basin", y="ppm")+
@@ -343,56 +342,50 @@ p <- ggplot(chloride1, aes(x= major, y= value, fill = major)) +
   annotation_logticks(sides = "l")+
   theme(legend.position="none")
 
-p
+chlorideBoxplot
 
 
 
-##Total Phosphorous Graphics (fix) 
+##Total Phosphorus Graphics
 
-#Total Phosphorous summary stat by Major Basin (fix sig figs)
-TotalPhosphorous <- mbasin_para1[mbasin_para1$chemparameter == "Total.Phosphorous",]  
+  #Total Phosphorus summary stat by Major Basin 
+TotalPhosphorus <- mbasin_para1[mbasin_para1$chemparameter == "Total.Phosphorus",]  
 
-TotalPhosphorous<- t(TotalPhosphorous)
-colnames(TotalPhosphorous) <- TotalPhosphorous[1, ]
-TotalPhosphorous <- TotalPhosphorous[-1, ]
-TotalPhosphorous <- TotalPhosphorous[-1, ]
+TotalPhosphorus<- t(TotalPhosphorus)
+colnames(TotalPhosphorus) <- TotalPhosphorus[1, ]
+TotalPhosphorus <- TotalPhosphorus[-1, ]
+TotalPhosphorus <- TotalPhosphorus[-1, ]
 
-Phosphorous_state <- subset(Statewide, select = "Total Phosphorous")
-Phosphorous_state <- as.numeric(as.character(Phosphorous_state))
+Phosphorus_state <- subset(Statewide, select = "Total Phosphorus")
+Phosphorus_state <- as.numeric(as.character(Phosphorus_state))
 
-TotalPhosphorous <-data.frame(cbind(TotalPhosphorous, Phosphorous_state))
+TotalPhosphorus <-data.frame(cbind(TotalPhosphorus, Phosphorus_state))
 
-names(TotalPhosphorous)[names(TotalPhosphorous) == 'Phosphorous_state'] <- 'Statewide'
-
-
-#boxplot Total Phosphorous
-
-TotalPhosphorous1 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
-TotalPhosphorous1 <- data.frame(subset(TotalPhosphorous1, TotalPhosphorous1$chemparameter == "Total Phosphorous"))
+names(TotalPhosphorus)[names(TotalPhosphorus) == 'Phosphorus_state'] <- 'Statewide'
 
 
-TotalPhosphorous1['major'] = 'Statewide'
+  #boxplot Total Phosphorus
+
+TotalPhosphorus1 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
+TotalPhosphorus1 <- data.frame(subset(TotalPhosphorus1, TotalPhosphorus1$chemparameter == "Total Phosphorus"))
 
 
-TotalPhosphorous2 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
-TotalPhosphorous2 <- data.frame(subset(TotalPhosphorous2, TotalPhosphorous2$chemparameter == "Total Phosphorous"))
-TotalPhosphorous2 <- arrange(TotalPhosphorous2, TotalPhosphorous2$major)
-
-TotalPhosphorous2 <- data.frame(rbind(TotalPhosphorous2, TotalPhosphorous1))
+TotalPhosphorus1['major'] = 'Statewide'
 
 
-TotalPhosphorous2$major <- as.factor(TotalPhosphorous2$major)
-head(TotalPhosphorous2)
+TotalPhosphorus2 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
+TotalPhosphorus2 <- data.frame(subset(TotalPhosphorus2, TotalPhosphorus2$chemparameter == "Total Phosphorus"))
+TotalPhosphorus2 <- arrange(TotalPhosphorus2, TotalPhosphorus2$major)
+TotalPhosphorus2 <- data.frame(rbind(TotalPhosphorus2, TotalPhosphorus1))
+TotalPhosphorus2$major <- as.factor(TotalPhosphorus2$major)
+head(TotalPhosphorus2)
+TotalPhosphorus2$major <- factor(TotalPhosphorus2$major , levels = MajorLevel)
 
 
-TotalPhosphorous2$major <- factor(TotalPhosphorous2$major , levels = MajorLevel)
-
-require(scales)
-
-Phosphorous_box <- ggplot(TotalPhosphorous2, aes(x= major, y= value, fill = major)) + 
+Phosphorus_box <- ggplot(TotalPhosphorus2, aes(x= major, y= value, fill = major)) + 
   geom_boxplot(outlier.colour="black", outlier.shape=8,
                outlier.size=2)+
-  labs(title = "Total Phosphorous",x="Major Basin", y="ppm")+
+  labs(title = "Total Phosphorus",x="Major Basin", y="ppm")+
   scale_fill_brewer(palette="RdBu")+
   theme_bw()+
   theme(plot.title = element_text(hjust = 0.5))+
@@ -403,4 +396,161 @@ Phosphorous_box <- ggplot(TotalPhosphorous2, aes(x= major, y= value, fill = majo
   annotation_logticks(sides = "l")+
   theme(legend.position="none")
 
-Phosphorous_box
+Phosphorus_box
+
+##Total Nitrogen Graphics
+
+#Total Nitrogen summary stat by Major Basin 
+TotalNitrogen <- mbasin_para1[mbasin_para1$chemparameter == "Total.Nitrogen",]  
+
+TotalNitrogen<- t(TotalNitrogen)
+colnames(TotalNitrogen) <- TotalNitrogen[1, ]
+TotalNitrogen <- TotalNitrogen[-1, ]
+TotalNitrogen <- TotalNitrogen[-1, ]
+
+Nitrogen_state <- subset(Statewide, select = "Total Nitrogen")
+Nitrogen_state <- as.numeric(as.character(Nitrogen_state))
+
+TotalNitrogen <-data.frame(cbind(TotalNitrogen, Nitrogen_state))
+
+names(TotalNitrogen)[names(TotalNitrogen) == 'Nitrogen_state'] <- 'Statewide'
+
+
+#boxplot Total Nitrogen
+
+TotalNitrogen1 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
+TotalNitrogen1 <- data.frame(subset(TotalNitrogen1, TotalNitrogen1$chemparameter == "Total Nitrogen"))
+
+
+TotalNitrogen1['major'] = 'Statewide'
+
+
+TotalNitrogen2 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
+TotalNitrogen2 <- data.frame(subset(TotalNitrogen2, TotalNitrogen2$chemparameter == "Total Nitrogen"))
+TotalNitrogen2 <- arrange(TotalNitrogen2, TotalNitrogen2$major)
+TotalNitrogen2 <- data.frame(rbind(TotalNitrogen2, TotalNitrogen1))
+TotalNitrogen2$major <- as.factor(TotalNitrogen2$major)
+head(TotalNitrogen2)
+TotalNitrogen2$major <- factor(TotalNitrogen2$major , levels = MajorLevel)
+
+
+Nitrogen_box <- ggplot(TotalNitrogen2, aes(x= major, y= value, fill = major)) + 
+  geom_boxplot(outlier.colour="black", outlier.shape=8,
+               outlier.size=2)+
+  labs(title = "Total Nitrogen",x="Major Basin", y="ppm")+
+  scale_fill_brewer(palette="RdBu")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  stat_summary(fun = mean, geom="point", shape=23, size=3)+
+  theme(axis.text.x = element_text(angle=90, hjust = 1))+
+  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                labels = trans_format("log10", math_format(10^.x)))+
+  annotation_logticks(sides = "l")+
+  theme(legend.position="none")
+
+Nitrogen_box
+
+
+##Hardness Graphics (change y scale?)
+
+  #Hardness summary stat by Major Basin 
+Hardness <- mbasin_para1[mbasin_para1$chemparameter == "Hardness",]  
+
+Hardness<- t(Hardness)
+colnames(Hardness) <- Hardness[1, ]
+Hardness <- Hardness[-1, ]
+Hardness <- Hardness[-1, ]
+
+Hardness_state <- subset(Statewide, select = "Hardness")
+Hardness_state <- as.numeric(as.character(Hardness_state))
+
+Hardness <-data.frame(cbind(Hardness, Hardness_state))
+
+names(Hardness)[names(Hardness) == 'Hardness_state'] <- 'Statewide'
+
+
+  #boxplot Hardness
+
+Hardness1 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
+Hardness1 <- data.frame(subset(Hardness1, Hardness1$chemparameter == "Hardness"))
+
+
+Hardness1['major'] = 'Statewide'
+
+
+Hardness2 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
+Hardness2 <- data.frame(subset(Hardness2, Hardness2$chemparameter == "Hardness"))
+Hardness2 <- arrange(Hardness2, Hardness2$major)
+Hardness2 <- data.frame(rbind(Hardness2, Hardness1))
+Hardness2$major <- as.factor(Hardness2$major)
+head(Hardness2)
+Hardness2$major <- factor(Hardness2$major , levels = MajorLevel)
+
+
+Hardness_box <- ggplot(Hardness2, aes(x= major, y= value, fill = major)) + 
+  geom_boxplot(outlier.colour="black", outlier.shape=8,
+               outlier.size=2)+
+  labs(title = "Hardness",x="Major Basin", y="ppm")+
+  scale_fill_brewer(palette="RdBu")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  stat_summary(fun = mean, geom="point", shape=23, size=3)+
+  theme(axis.text.x = element_text(angle=90, hjust = 1))+
+  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                labels = trans_format("log10", math_format(10^.x)))+
+  annotation_logticks(sides = "l")+
+  theme(legend.position="none")
+
+Hardness_box
+
+##Turbidity Graphics
+
+  #Turbidity summary stat by Major Basin 
+Turbidity <- mbasin_para1[mbasin_para1$chemparameter == "Turbidity",]  
+
+Turbidity<- t(Turbidity)
+colnames(Turbidity) <- Turbidity[1, ]
+Turbidity <- Turbidity[-1, ]
+Turbidity <- Turbidity[-1, ]
+
+Turbidity_state <- subset(Statewide, select = "Turbidity")
+Turbidity_state <- as.numeric(as.character(Turbidity_state))
+
+Turbidity <-data.frame(cbind(Turbidity, Turbidity_state))
+
+names(Turbidity)[names(Turbidity) == 'Turbidity_state'] <- 'Statewide'
+
+
+  #boxplot Turbidity
+
+Turbidity1 <- data.frame(na.omit(subset(chem_basin, select = c("chemparameter","value"))))
+Turbidity1 <- data.frame(subset(Turbidity1, Turbidity1$chemparameter == "Turbidity"))
+
+
+Turbidity1['major'] = 'Statewide'
+
+
+Turbidity2 <- data.frame(na.omit(subset(chem_basin, select = c("major","chemparameter","value"))))
+Turbidity2 <- data.frame(subset(Turbidity2, Turbidity2$chemparameter == "Turbidity"))
+Turbidity2 <- arrange(Turbidity2, Turbidity2$major)
+Turbidity2 <- data.frame(rbind(Turbidity2, Turbidity1))
+Turbidity2$major <- as.factor(Turbidity2$major)
+head(Turbidity2)
+Turbidity2$major <- factor(Turbidity2$major , levels = MajorLevel)
+
+
+Turbidity_box <- ggplot(Turbidity2, aes(x= major, y= value, fill = major)) + 
+  geom_boxplot(outlier.colour="black", outlier.shape=8,
+               outlier.size=2)+
+  labs(title = "Turbidity",x="Major Basin", y="NTU")+
+  scale_fill_brewer(palette="RdBu")+
+  theme_bw()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  stat_summary(fun = mean, geom="point", shape=23, size=3)+
+  theme(axis.text.x = element_text(angle=90, hjust = 1))+
+  scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                labels = trans_format("log10", math_format(10^.x)))+
+  annotation_logticks(sides = "l")+
+  theme(legend.position="none")
+
+Turbidity_box
