@@ -344,8 +344,6 @@ chlorideBoxplot <- ggplot(chloride1, aes(x= major, y= value, fill = major)) +
 
 chlorideBoxplot
 
-
-
 ##Total Phosphorus Graphics
 
   #Total Phosphorus summary stat by Major Basin 
@@ -554,3 +552,18 @@ Turbidity_box <- ggplot(Turbidity2, aes(x= major, y= value, fill = major)) +
   theme(legend.position="none")
 
 Turbidity_box
+
+##Cumulative Frequency Chloride (edit)
+
+chlorideCf = chloride2$value 
+breaks = seq(1.5, 5.5, by=0.5) 
+chlorideCf_cut = cut(chlorideCf, breaks, right=FALSE) 
+chlorideCf_freq = table(chlorideCf_cut)
+
+cumfreqChl = c(0, cumsum(chlorideCf_freq)) 
+plot(breaks, cumfreqChl,
+     main= "Chloride (ppm)",  
+     xlab= "Chloride (ppm)",     
+     ylab= "Cumulative Frequency")    
+lines(breaks, cumfreqChl)    
+
