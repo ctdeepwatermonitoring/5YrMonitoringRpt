@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CT Land Cover 2015</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <header class="row bg-dark text-white py-3">
+        <div class="col">
+            <h1>Water Quality Summary</h1>
+        </div>
+    </header>
+
+    <section class="row">
+        <div class="col-md-8 col-lg-9 col-xl-10 order-md-2 px-0">
+            <div id="map"></div>
+        </div>
+        <aside id="about" class="col-md-4 col-lg-3 col-xl-2 order-md-1 text-white py-2 pl-3 bg-secondary overflow-auto">
+            <section>
+                <h3 class="py-2">2011 - 2015</h3>
+                <p>The map summarizes water quality data collected in 2011 - 2015.</p>
+                <p> The range for each chemical parameter is broken up by percentile across the entire state (25th, 50th, 75th, 90th, > 90th). </p>
+
+            </section>
+        </aside>
+    </section>
+
+    <footer class="row bg-dark text-white py-3">
+        <div class="col">
+            <ul class="list-unstyled">
+                <li>authored by <a href="https://github.com/marybecker">Mary Becker</a> and <a href="https://github.com/marybecker">Kevin Li </a></li>
+                <li>last updated: 05 May 2020</li>
+                <li>data source: <a href="https://github.com/ctdeepwatermonitoring/5YrMonitoringRpt"> CT DEEP WATER MONITORING</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<!-- legend is outside of container-fluid and will be dynamically added to map -->
+<div class="bg-secondary py-2 px-3 ml-3 mt-3 text-white" id="legend"></div>
+
+<!-- ui is outside of container-fluid and will be dynamically added to map -->
+<div class="form-group mr-3 mt-3" id="dropdown-ui">
+    <select class="form-control bg-primary text-white">
+        <option value="TP" selected>Total Phosphorus</option>
+        <option value="TN">Total Nitrogen</option>
+        <option value="TD">Turbidity</option>
+        <option value="CL">Chloride</option>
+    </select>
+</div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS, then leaflet, then simple statistics then your JS! -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+<script src="https://unpkg.com/simple-statistics@7.0.8/dist/simple-statistics.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+
+</html>

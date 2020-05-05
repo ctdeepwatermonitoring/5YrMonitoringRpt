@@ -1,0 +1,69 @@
+body {
+    background: #20282e;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 800;
+}
+
+h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 400;
+}
+
+p {
+    line-height: 1.7rem;
+}
+
+li {
+    font-family: 'Noto Serif TC', serif;
+}
+
+#map {
+    height: 80vh;
+    background: #20282e;
+}
+
+#legend {
+    font-size: 1rem;
+    border-radius: 5px;
+    max-width: 200px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#legend span {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 10px 4px 0;
+}
+
+#legend label {
+    font-size: 0.9rem;
+}
+
+#legend label:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+    aside {
+        height: 80vh;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
