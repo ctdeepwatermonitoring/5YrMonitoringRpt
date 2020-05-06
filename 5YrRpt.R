@@ -554,16 +554,21 @@ Turbidity_box <- ggplot(Turbidity2, aes(x= major, y= value, fill = major)) +
 Turbidity_box
 
 ##Cumulative Frequency Chloride (edit)
+  
+  #axis title
+axis_title <- element_text(face = "bold", color = "black")
 
-chlorideCf = chloride2$value 
-breaks = seq(1.5, 5.5, by=0.5) 
-chlorideCf_cut = cut(chlorideCf, breaks, right=FALSE) 
-chlorideCf_freq = table(chlorideCf_cut)
+  #set df
+chlorideCf <- data.frame(chlorideCf)
+chlorideCf1 <- as.numeric(unlist(chlorideCf))
 
-cumfreqChl = c(0, cumsum(chlorideCf_freq)) 
-plot(breaks, cumfreqChl,
-     main= "Chloride (ppm)",  
-     xlab= "Chloride (ppm)",     
-     ylab= "Cumulative Frequency")    
-lines(breaks, cumfreqChl)    
+Chloride_cfplot <- ggplot(chlorideCf, aes(chlorideCf)) +
+  labs(title = "Chloride ",x="Chloride (ppm)", y="Cumulative percent of data") +
+  theme_light()+
+  theme(title = axis_title, axis.title = axis_title)+
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_y_continuous(labels = percent)+
+  stat_ecdf(geom = "step", size = 1, colour = "#00AFBB") + 
+  scale_x_continuous(name="Chloride (ppm)", limits=c(0, 100))+
+  geom_vline(xintercept = median(chlorideCf1), size = 1.5)
 
