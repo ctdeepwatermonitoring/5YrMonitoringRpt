@@ -553,8 +553,9 @@ Turbidity_box <- ggplot(Turbidity2, aes(x= major, y= value, fill = major)) +
 
 Turbidity_box
 
-##Cumulative Frequency Chloride (edit)
-  
+##Cumulative Frequency Chloride Statewide (edit)
+chlorideCf = chloride2$value 
+
   #axis title
 axis_title <- element_text(face = "bold", color = "black")
 
@@ -563,12 +564,111 @@ chlorideCf <- data.frame(chlorideCf)
 chlorideCf1 <- as.numeric(unlist(chlorideCf))
 
 Chloride_cfplot <- ggplot(chlorideCf, aes(chlorideCf)) +
-  labs(title = "Chloride ",x="Chloride (ppm)", y="Cumulative percent of data") +
+  labs(title = "Chloride Statewide ",x="Chloride (ppm)", y="Cumulative percent of data") +
   theme_light()+
   theme(title = axis_title, axis.title = axis_title)+
   theme(plot.title = element_text(hjust = 0.5))+
   scale_y_continuous(labels = percent)+
-  stat_ecdf(geom = "step", size = 1, colour = "#00AFBB") + 
+  stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
   scale_x_continuous(name="Chloride (ppm)", limits=c(0, 100))+
-  geom_vline(xintercept = median(chlorideCf1), size = 1.5)
+  geom_vline(xintercept = median(chlorideCf1), size = 1.5)+
+  geom_vline(xintercept = mean(chlorideCf1), size=1.5, linetype="dotted",color = "red")
 
+
+Chloride_cfplot
+  
+##Cumulative Frequency Phosphorus Statewide (edit)
+phosphorusCf = TotalPhosphorus1$value
+
+#axis title
+axis_title <- element_text(face = "bold", color = "black")
+
+#set df
+phosphorusCf <- data.frame(phosphorusCf)
+phosphorusCf1 <- as.numeric(unlist(phosphorusCf))
+
+phosphorus_cfplot <- ggplot(phosphorusCf, aes(phosphorusCf)) +
+  labs(title = "Total Phosphorus Statewide ",x="Total Phosphorus (ppm)", y="Cumulative percent of data") +
+  theme_light()+
+  theme(title = axis_title, axis.title = axis_title)+
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_y_continuous(labels = percent)+
+  stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
+  scale_x_continuous(name="Total Phosphorus (ppm)", limits=c(0,1.5))+
+  geom_vline(xintercept = median(phosphorusCf1), size = 1.5)+
+  geom_vline(xintercept = mean(phosphorusCf1), size=1.5, linetype="dotted",color = "red")
+
+
+phosphorus_cfplot  
+
+##Cumulative Frequency Nitrogen Statewide (edit)
+nitrogenCf = TotalNitrogen1$value
+
+#axis title
+axis_title <- element_text(face = "bold", color = "black")
+
+#set df
+nitrogenCf <- data.frame(nitrogenCf)
+nitrogenCf1 <- as.numeric(unlist(nitrogenCf))
+
+nitrogen_cfplot <- ggplot(nitrogenCf, aes(nitrogenCf)) +
+  labs(title = "Total Nitrogen Statewide ",x="Total Nitrogen (ppm)", y="Cumulative percent of data") +
+  theme_light()+
+  theme(title = axis_title, axis.title = axis_title)+
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_y_continuous(labels = percent)+
+  stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
+  scale_x_continuous(name="Total Nitrogen (ppm)", limits=c(0,6.625))+
+  geom_vline(xintercept = median(nitrogenCf1), size = 1.5)+
+  geom_vline(xintercept = mean(nitrogenCf1), size=1.5, linetype="dotted",color = "red")
+
+
+nitrogen_cfplot  
+
+##Cumulative Frequency Hardness Statewide (edit)
+hardnessCf = Hardness1$value
+
+#axis title
+axis_title <- element_text(face = "bold", color = "black")
+
+#set df
+hardnessCf <- data.frame(hardnessCf)
+hardnessCf1 <- as.numeric(unlist(hardnessCf))
+
+hardness_cfplot <- ggplot(hardnessCf, aes(hardnessCf)) +
+  labs(title = "Hardness Statewide ",x="Hardness (ppm)", y="Cumulative percent of data") +
+  theme_light()+
+  theme(title = axis_title, axis.title = axis_title)+
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_y_continuous(labels = percent)+
+  stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
+  scale_x_continuous(name="Hardness (ppm)", limits=c(0,325))+
+  geom_vline(xintercept = median(hardnessCf1), size = 1.5)+
+  geom_vline(xintercept = mean(hardnessCf1), size=1.5, linetype="dotted",color = "red")
+
+
+hardness_cfplot  
+
+##Cumulative Frequency Turbidity Statewide (edit)
+turbidityCf = Turbidity1$value
+
+#axis title
+axis_title <- element_text(face = "bold", color = "black")
+
+#set df
+turbidityCf <- data.frame(turbidityCf)
+turbidityCf1 <- as.numeric(unlist(turbidityCf))
+
+turbidity_cfplot <- ggplot(turbidityCf, aes(turbidityCf)) +
+  labs(title = "Turbidity Statewide ",x="Turbidity (NTU)", y="Cumulative percent of data") +
+  theme_light()+
+  theme(title = axis_title, axis.title = axis_title)+
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_y_continuous(labels = percent)+
+  stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
+  scale_x_continuous(name="Turbidity (NTU)", limits=c(0,50))+
+  geom_vline(xintercept = median(turbidityCf1), size = 1.5)+
+  geom_vline(xintercept = mean(turbidityCf1), size=1.5, linetype="dotted",color = "red")
+
+
+turbidity_cfplot  
