@@ -676,7 +676,7 @@ Chloride_multi <-ggplot(data = chloride1, aes(x = value, group = major, col = ma
   stat_ecdf(geom = "line", size = 1)+
   scale_x_continuous(breaks = seq(0,600, by=50))+
   scale_y_continuous(labels = percent)+
-  scale_fill_manual(values=cbPalette)+
+  scale_color_brewer(palette = "Set1")+
   labs(title = "Chloride (ppm) ")+
   xlab("\nChloride (ppm)")+
   ylab("Cumulative percent of data\n")+
@@ -685,8 +685,10 @@ Chloride_multi <-ggplot(data = chloride1, aes(x = value, group = major, col = ma
   geom_vline(xintercept = median(chlorideCf1), size = 1, linetype = "solid")+
   guides(color = guide_legend(reverse = TRUE))+
   theme(legend.title=element_blank())
+  
 
 Chloride_multi
+
 
 
 
