@@ -668,12 +668,15 @@ turbidity_cfplot
 
 library(ggthemes)
 
+cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#000000")
+
 ##Chloride multi edcf
 
 Chloride_multi <-ggplot(data = chloride1, aes(x = value, group = major, col = major)) +
   stat_ecdf(geom = "line", size = 1)+
-  scale_x_continuous(limits=c(0, 600))+
+  scale_x_continuous(breaks = seq(0,600, by=50))+
   scale_y_continuous(labels = percent)+
+  scale_fill_manual(values=cbPalette)+
   labs(title = "Chloride (ppm) ")+
   xlab("\nChloride (ppm)")+
   ylab("Cumulative percent of data\n")+
@@ -683,6 +686,7 @@ Chloride_multi <-ggplot(data = chloride1, aes(x = value, group = major, col = ma
   guides(color = guide_legend(reverse = TRUE))+
   theme(legend.title=element_blank())
 
+Chloride_multi
 
 
 
