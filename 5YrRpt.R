@@ -553,11 +553,11 @@ Turbidity_box <- ggplot(Turbidity2, aes(x= major, y= value, fill = major)) +
 
 Turbidity_box
 
+##axis title
+axis_title <- element_text(face = "bold", color = "black")
+
 ##Cumulative Frequency Chloride Statewide (edit)
 chlorideCf = chloride2$value 
-
-  #axis title
-axis_title <- element_text(face = "bold", color = "black")
 
   #set df
 chlorideCf <- data.frame(chlorideCf)
@@ -604,9 +604,6 @@ phosphorus_cfplot
 ##Cumulative Frequency Nitrogen Statewide (edit)
 nitrogenCf = TotalNitrogen1$value
 
-#axis title
-axis_title <- element_text(face = "bold", color = "black")
-
 #set df
 nitrogenCf <- data.frame(nitrogenCf)
 nitrogenCf1 <- as.numeric(unlist(nitrogenCf))
@@ -627,9 +624,6 @@ nitrogen_cfplot
 
 ##Cumulative Frequency Hardness Statewide (edit)
 hardnessCf = Hardness1$value
-
-#axis title
-axis_title <- element_text(face = "bold", color = "black")
 
 #set df
 hardnessCf <- data.frame(hardnessCf)
@@ -652,9 +646,6 @@ hardness_cfplot
 ##Cumulative Frequency Turbidity Statewide (edit)
 turbidityCf = Turbidity1$value
 
-#axis title
-axis_title <- element_text(face = "bold", color = "black")
-
 #set df
 turbidityCf <- data.frame(turbidityCf)
 turbidityCf1 <- as.numeric(unlist(turbidityCf))
@@ -672,3 +663,32 @@ turbidity_cfplot <- ggplot(turbidityCf, aes(turbidityCf)) +
 
 
 turbidity_cfplot  
+
+##multi edcf Major Basin
+
+library(ggthemes)
+
+cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#000000")
+
+##Chloride multi edcf
+
+Chloride_multi <-ggplot(data = chloride1, aes(x = value, group = major, col = major)) +
+  stat_ecdf(geom = "line", size = 1)+
+  scale_x_continuous(breaks = seq(0,600, by=50))+
+  scale_y_continuous(labels = percent)+
+  scale_color_brewer(palette = "Set1")+
+  labs(title = "Chloride (ppm) ")+
+  xlab("\nChloride (ppm)")+
+  ylab("Cumulative percent of data\n")+
+  theme_economist()+
+  theme(plot.title = element_text(hjust = 0.5))+
+  geom_vline(xintercept = median(chlorideCf1), size = 1, linetype = "solid")+
+  guides(color = guide_legend(reverse = TRUE))+
+  theme(legend.title=element_blank())
+  
+
+Chloride_multi
+
+
+
+
