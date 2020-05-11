@@ -666,15 +666,18 @@ turbidity_cfplot
 
 ##multi edcf Major Basin
 
+library(ggthemes)
+
 ##Chloride multi edcf
 
 Chloride_multi <-ggplot(data = chloride1, aes(x = value, group = major, col = major)) +
   stat_ecdf(geom = "line", size = 1)+
   scale_x_continuous(limits=c(0, 600))+
   scale_y_continuous(labels = percent)+
-  labs(title = "Chloride (ppm) ",x="Chloride (ppm)", y="Cumulative percent of data")+
-  theme_light()+
-  theme(title = axis_title, axis.title = axis_title)+
+  labs(title = "Chloride (ppm) ")+
+  xlab("\nChloride (ppm)")+
+  ylab("Cumulative percent of data\n")+
+  theme_economist()+
   theme(plot.title = element_text(hjust = 0.5))+
   geom_vline(xintercept = median(chlorideCf1), size = 1, linetype = "solid")+
   guides(color = guide_legend(reverse = TRUE))+
