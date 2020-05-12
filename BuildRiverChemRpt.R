@@ -2,7 +2,7 @@ library('RSQLite')
 library(ggplot2)
 library(scales)
 
-setwd("")
+setwd("C:/Users/kevin/Documents/Projects/GitHub/DEEP QA/5YrMonitoringRpt")
 
 ##########LOAD and format the data####################################################################
 ## Load data from the SQLite database#################################################################
@@ -61,3 +61,30 @@ plotCFD<- function (chemicalParameter,plotSite){
 params<-c("Total Phosphorus","Total Nitrogen","Chloride","Total Suspended Solids")
 
 plotCFD(params[4],"16124") #Example run for a particular parameter and site
+
+###output plot for each param at each site###
+
+SitePlots <- list()
+
+SiteID <- unique(chem_basin$sta_seq)
+
+for (i in 1:length(SiteID)) {
+   Total.Phosphorus <- plotCFD(params[1],SiteID[i])
+   Total.Nitrogen <- plotCFD(params[2],SiteID[i])
+   Chloride <- plotCFD(params[3],SiteID[i])
+   Total.Suspended.Solids <- plotCFD(params[4],SiteID[i])
+   SitePlots[[i]]
+}
+
+
+###function for cumulative frequency plots per major basin###
+
+
+
+
+
+
+
+
+
+
