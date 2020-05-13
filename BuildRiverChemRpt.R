@@ -36,12 +36,13 @@ plotCFD<- function (chemicalParameter,plotSite){
             
             plot<-  ggplot(pAvg,aes(value)) +
                       labs(title = paste(pSite$name,"SID",pSite$sta_seq),x=paste0(chemicalParameter,"(",getUOM,")"), y="Cumulative percent of data") +
-                      theme_light()+
+                      theme_bw()+
+                      theme(text=element_text(size=16,  family="serif"))+
                       theme(title = axis_title, axis.title = axis_title)+
                       theme(plot.title = element_text(hjust = 0.5))+
                       scale_y_continuous(labels = percent)+
-                      stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
-                      stat_ecdf(data = pBasin, mapping = aes(value),geom = "line", size = 1.1, color = "#40004b") + 
+                      stat_ecdf(geom = "line", size = 1.1, colour = "#0000CC") + 
+                      stat_ecdf(data = pBasin, mapping = aes(value),geom = "line", linetype = "dashed", size = 1.1, color = "#333333") + 
                       geom_point(aes(x=value[pSiteRow],y=ecdf(value)(value[pSiteRow])), size = 3.5, color = "red")+
                       geom_vline(xintercept = median(pAvg$value), size = 1.5)
                       #geom_vline(xintercept = mean(param$value), size=1.5, linetype="dotted",color = "red")+
@@ -76,8 +77,31 @@ for (i in 1:length(SiteID)) {
 dev.off()
   
 
-###function for cumulative frequency plots per major basin###
-
+###function for cumulative frequency plots per major basin###EDIT###
+plotCFD<- function (chemicalParameter,plotBasin){
+   p<-(chem_basin[chem_basin$chemparameter==chemicalParameter,])
+   pMaj<-aggregate(value~major,data=p,FUN=mean)
+   pMajB<-pMaj[pMaj$major==plotBasin,]
+   statewide_gg<-(chem_basin[chem_basin$value])
+   statwide_pMaj<-rbind(pMajB,statewide_gg)
+   axis_title <- element_text(face = "bold", color = "black")
+   getUOM<-as.character(unique(p$uom))
+   getParam<-as.character(unique(p$chemparameter))
+   
+   multi <-ggplot(data = chloride1, aes(x = value, group = major, col = major)) +
+      labs(title = paste0(getParam,"(",getUOM,")",x=paste0(chemicalParameter,"(",getUOM,")"), y="Cumulative percent of data"))+
+      stat_ecdf(geom = "line", size = 1)+
+      scale_x_continuous(breaks = seq(0,600, by=50))+
+      scale_y_continuous(labels = percent)+
+      scale_color_brewer(palette = "Set1")+
+      labs(title = "Chloride (ppm) ")+
+      xlab("\nChloride (ppm)")+
+      ylab("Cumulative percent of data\n")+
+      theme_economist()+
+      theme(plot.title = element_text(hjust = 0.5))+
+      geom_vline(xintercept = median(chlorideCf1), size = 1, linetype = "solid")+
+      theme(legend.title=element_blank())
+}
 
 
 
