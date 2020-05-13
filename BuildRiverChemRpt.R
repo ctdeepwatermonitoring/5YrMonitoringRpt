@@ -41,8 +41,8 @@ plotCFD<- function (chemicalParameter,plotSite){
                       theme(plot.title = element_text(hjust = 0.5))+
                       scale_y_continuous(labels = percent)+
                       stat_ecdf(geom = "line", size = 1.1, colour = "#00AFBB") + 
-                      stat_ecdf(data = pBasin, mapping = aes(value),geom = "line", size = 1.1, colour = "#40004b") + 
-                      geom_point(aes(x=value[pSiteRow],y=ecdf(value)(value[pSiteRow])))+
+                      stat_ecdf(data = pBasin, mapping = aes(value),geom = "line", size = 1.1, color = "#40004b") + 
+                      geom_point(aes(x=value[pSiteRow],y=ecdf(value)(value[pSiteRow])), size = 3.5, color = "red")+
                       geom_vline(xintercept = median(pAvg$value), size = 1.5)
                       #geom_vline(xintercept = mean(param$value), size=1.5, linetype="dotted",color = "red")+
                       
@@ -65,17 +65,16 @@ plotCFD(params[4],"16124") #Example run for a particular parameter and site
 ###output plot for each param at each site###
 
 SitePlots <- list()
-
 SiteID <- unique(chem_basin$sta_seq)
+pdf("plots.pdf")
 
 for (i in 1:length(SiteID)) {
-   Total.Phosphorus <- plotCFD(params[1],SiteID[i])
-   Total.Nitrogen <- plotCFD(params[2],SiteID[i])
-   Chloride <- plotCFD(params[3],SiteID[i])
-   Total.Suspended.Solids <- plotCFD(params[4],SiteID[i])
-   SitePlots[[i]]
+  p <- plotCFD(params[1:4],SiteID[i])
+  SitePlots[[i]] = p
+  print(SitePlots[[i]])
 }
-
+dev.off()
+  
 
 ###function for cumulative frequency plots per major basin###
 
