@@ -78,6 +78,7 @@ dev.off()
   
 
 ###function for cumulative frequency plots per major basin###EDIT###
+
 plotCFD<- function (chemicalParameter,plotBasin){
    p<-(chem_basin[chem_basin$chemparameter==chemicalParameter,])
    pMaj<-aggregate(value~major,data=p,FUN=mean)
