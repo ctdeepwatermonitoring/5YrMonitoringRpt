@@ -92,9 +92,10 @@ plotMajor<- function (chemicalParameter){
    getUOM<-as.character(unique(p$uom))
    getParam<-as.character(unique(p$chemparameter))
    
-   multi <-ggplot(data = chem_basin, aes(x = value, group = major, col = major)) +
-      labs(title = paste0(getParam,"(",getUOM,")", x=paste0(chemicalParameter,"(",getUOM,")"), y="Cumulative percent of data"))+
-      
+   multi <-ggplot(data = pMaj, aes(x = value, group = major, col = major)) +
+      labs(title = paste(getParam,"(",getUOM,")"), 
+                          x = paste0(chemicalParameter,"(",getUOM,")"), 
+                          y = "Cumulative percent of data\n")+
       stat_ecdf(geom = "line", size = 1)+
       scale_x_continuous(breaks = seq(0,600, by=50))+
       scale_y_continuous(labels = percent)+
