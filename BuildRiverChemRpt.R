@@ -81,24 +81,25 @@ dev.off()
 ###function for cumulative frequency plots per major basin###EDIT###
 
 plotMajor<- function (chemicalParameter){
-   p<-(chem_basin[chem_basin$chemparameter==chemicalParameter,])
-   pMaj<-aggregate(chemparameter~major+value,data=p, FUN = mean, na.rm=TRUE,)
+   x<-(chem_basin[chem_basin$chemparameter==chemicalParameter,])
+   pMaj<-aggregate(chemparameter~major+value,data=x, FUN = mean, na.rm=TRUE,)
    axis_title <- element_text(face = "bold", color = "black")
-   getUOM<-as.character(unique(p$uom))
-   getParam<-as.character(unique(p$chemparameter))
+   getUOM<-as.character(unique(x$uom))
+   getParam<-as.character(unique(x$chemparameter))
    
    multi <-ggplot(data = pMaj, aes(x = value, group = major, col = major)) +
-      labs(title = paste(getParam,"(",getUOM,")"), 
+      labs(title = paste0(getParam, "(",getUOM,")"), 
            x = paste0(chemicalParameter,"(",getUOM,")"), 
            y = "Cumulative percent of data\n")+
       stat_ecdf(geom = "line", size = 1)+
       scale_y_continuous(labels = percent)+
       scale_x_continuous(breaks = seq(0,600, by=50))+
       geom_vline(xintercept = median(pMaj$value), size = 1.1)+
-      theme(axis.title.x = element_text(vjust=-0.5))+
       scale_color_brewer(palette = "Set1")+
-      theme_gdocs()+
-      theme(plot.title = element_text(hjust = 0.5))+
+      theme_stata()+
+      theme(title = axis_title, plot.title = element_text(size = 20, hjust = 0.5))+
+      theme(axis.title.x = element_text(size = 12, vjust = -0.5))+
+      theme(axis.title.y = element_text(size = 12))+
       theme(legend.title=element_blank())
    
    return(multi)
