@@ -82,25 +82,22 @@ dev.off()
 
 plotMajor<- function (chemicalParameter){
    p<-(chem_basin[chem_basin$chemparameter==chemicalParameter,])
-   pMaj<-aggregate(value~major,data=p, FUN = mean)
-   
-   #pMajB<-pMaj[pMaj$major==,]
-   #statewide_gg<-(chem_basin[chem_basin$value])
-   #statewide_pMaj<-rbind(pMajB,statewide_gg)
-   
+   pMaj<-aggregate(chemparameter~major+value,data=p, FUN = mean, na.rm=TRUE,)
    axis_title <- element_text(face = "bold", color = "black")
    getUOM<-as.character(unique(p$uom))
    getParam<-as.character(unique(p$chemparameter))
    
    multi <-ggplot(data = pMaj, aes(x = value, group = major, col = major)) +
       labs(title = paste(getParam,"(",getUOM,")"), 
-                          x = paste0(chemicalParameter,"(",getUOM,")"), 
-                          y = "Cumulative percent of data\n")+
+           x = paste0(chemicalParameter,"(",getUOM,")"), 
+           y = "Cumulative percent of data\n")+
       stat_ecdf(geom = "line", size = 1)+
-      scale_x_continuous(breaks = seq(0,600, by=50))+
       scale_y_continuous(labels = percent)+
+      scale_x_continuous(breaks = seq(0,600, by=50))+
+      geom_vline(xintercept = median(pMaj$value), size = 1.1)+
+      theme(axis.title.x = element_text(vjust=-0.5))+
       scale_color_brewer(palette = "Set1")+
-      theme_economist()+
+      theme_gdocs()+
       theme(plot.title = element_text(hjust = 0.5))+
       theme(legend.title=element_blank())
    
